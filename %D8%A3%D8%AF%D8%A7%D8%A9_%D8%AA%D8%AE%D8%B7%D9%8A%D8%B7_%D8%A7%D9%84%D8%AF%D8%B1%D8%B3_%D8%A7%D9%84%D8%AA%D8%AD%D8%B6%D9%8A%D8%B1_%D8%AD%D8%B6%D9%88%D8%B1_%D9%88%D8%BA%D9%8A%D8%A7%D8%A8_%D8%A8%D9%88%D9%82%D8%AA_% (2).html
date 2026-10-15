@@ -1,0 +1,3045 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>مخطط الدرس السريع</title>
+<style>
+:root{
+  --navy:#162A63;--navy2:#213B7A;--teal:#17B7B1;--violet:#6042B6;
+  --ink:#172033;--muted:#657089;--line:#E4E9F2;--soft:#F6F8FC;--white:#fff;
+  --ok:#168B66;--warn:#B26A00;--danger:#B63E55;--shadow:0 14px 36px rgba(22,42,99,.10)
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#F7F9FD,#EEF3FA);color:var(--ink);font-family:Tahoma,Arial,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+.app{max-width:1320px;margin:auto;min-height:100vh}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.topbar-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px}
+.brand h1{margin:0;color:var(--navy);font-size:18px}.brand p{margin:3px 0 0;font-size:11px;color:var(--muted)}
+.actions{display:flex;gap:7px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:#fff;color:var(--navy);padding:9px 12px;border-radius:12px;font-weight:700}
+.btn.primary{background:linear-gradient(135deg,var(--navy),var(--violet));color:#fff;border:0}
+.btn.teal{background:linear-gradient(135deg,var(--teal),#0A9EA3);color:#fff;border:0}
+.hero{margin:20px;border-radius:25px;padding:24px;background:linear-gradient(125deg,var(--navy),var(--navy2) 55%,var(--violet));color:#fff;box-shadow:var(--shadow)}
+.hero h2{margin:5px 0 8px;font-size:28px}.hero p{margin:0;line-height:1.8;color:rgba(255,255,255,.88)}
+.guide{margin:0 20px 18px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.guide-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;background:linear-gradient(90deg,#F4F8FD,#F7FBFB)}
+.guide-head h3{margin:0;color:var(--navy);font-size:18px}
+.guide-head p{margin:3px 0 0;color:var(--muted);font-size:11px}
+.guide-toggle{border:1px solid var(--line);background:#fff;color:var(--navy);padding:7px 10px;border-radius:10px;font-weight:700}
+.guide-body{padding:18px}
+.guide-intro{padding:12px 14px;border-radius:13px;background:#F3FBFA;border:1px solid #CFEDE9;color:#245E59;font-size:12px;line-height:1.8;margin-bottom:14px}
+.guide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.guide-step{border:1px solid var(--line);border-radius:15px;padding:13px;background:#FCFDFE}
+.guide-step .n{width:30px;height:30px;border-radius:9px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:8px}
+.guide-step h4{margin:0 0 7px;color:var(--navy);font-size:13px}
+.guide-step p{margin:5px 0;font-size:11px;line-height:1.7;color:#4C5870}
+.guide-step b{color:#27344F}
+.guide-source{margin-top:8px;padding:8px 9px;border-radius:10px;background:#F6F8FC;border:1px solid var(--line);font-size:10px;line-height:1.6;color:#667188}
+.guide-result{margin-top:14px;padding:13px 14px;border-radius:13px;background:#FFF8EA;border:1px solid #F0DDB7;color:#76520E;font-size:11px;line-height:1.8}
+
+.layout{display:grid;grid-template-columns:250px 1fr;gap:18px;padding:0 20px 28px}
+.sidebar{position:sticky;top:78px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:20px;padding:11px;box-shadow:var(--shadow)}
+.navbtn{width:100%;border:0;background:transparent;text-align:right;padding:12px;border-radius:12px;font-weight:700;color:#566176;margin:3px 0}
+.navbtn.active{background:#EEF4FB;color:var(--navy)}
+.score{margin-top:12px;padding:13px;background:var(--soft);border-radius:14px}
+.meter{height:8px;background:#E5EAF2;border-radius:999px;overflow:hidden}.meter div{height:100%;background:linear-gradient(90deg,var(--teal),var(--violet));width:0}
+.main{min-width:0}.panel{display:none;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}.panel.active{display:block}
+h3{color:var(--navy);margin:0 0 5px}.sub{color:var(--muted);font-size:12px;line-height:1.7;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.c12{grid-column:span 12}.c8{grid-column:span 8}.c6{grid-column:span 6}.c4{grid-column:span 4}.c3{grid-column:span 3}.c2{grid-column:span 2}
+.field label{display:block;font-size:12px;font-weight:700;color:#4C5870;margin-bottom:5px}
+input,select,textarea{width:100%;border:1px solid #DCE3EE;border-radius:11px;padding:10px 11px;outline:none;background:#fff}
+textarea{min-height:75px;resize:vertical;line-height:1.6}.ltopic{min-height:110px;font-size:14px}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(23,183,177,.1)}
+.card{border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0;background:#FCFDFE}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.badge{display:inline-block;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:700;background:#EEF3FF;color:var(--navy)}
+.iconbtn{border:0;background:#FFF0F3;color:var(--danger);width:30px;height:30px;border-radius:9px;font-weight:900}
+.preview{padding:12px 14px;background:#F6FBFB;border-right:4px solid var(--teal);border-radius:10px;margin-top:10px;font-size:13px;line-height:1.7}
+.quick{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.lassesslinks{font-family:Tahoma,Arial,sans-serif;direction:ltr;text-align:left}.chip{padding:6px 9px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:11px;color:#4D5970}
+.kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.kpi{min-width:130px;padding:10px 12px;background:var(--soft);border:1px solid var(--line);border-radius:13px}.kpi b{display:block;color:var(--navy);font-size:19px}.kpi span{font-size:10px;color:var(--muted)}
+.time-dashboard{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:14px 0 10px}
+.time-box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center}
+.time-box b{display:block;color:var(--navy);font-size:20px;line-height:1.2}.time-box span{font-size:10px;color:var(--muted)}
+.time-box.remaining{background:#F3FBFA;border-color:#CBECE8}.time-box.remaining.ok{background:#ECF8F3;border-color:#BFE6D7}.time-box.remaining.warn{background:#FFF8EA;border-color:#F0DDB7}.time-box.remaining.bad{background:#FFF0F3;border-color:#F1C8D1}
+.time-status{padding:10px 12px;border-radius:12px;font-weight:700;font-size:12px;line-height:1.6;margin:8px 0}.time-status.ok{background:#ECF8F3;color:#126A50;border:1px solid #BFE6D7}.time-status.warn{background:#FFF8EA;color:#7A5510;border:1px solid #F0DDB7}.time-status.bad{background:#FFF0F3;color:#9F3348;border:1px solid #F1C8D1}
+.minute-control{display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center}.minute-control button{border:1px solid var(--line);background:#F6F8FC;color:var(--navy);border-radius:9px;padding:9px 8px;font-weight:800}.minute-control input{text-align:center;font-weight:800;padding:9px 6px}
+.duration-helper{margin-top:6px;padding:8px 10px;border-radius:10px;background:#EEF7FF;border:1px solid #D9EAFB;color:#315477;font-size:10px;line-height:1.6}
+@media(max-width:900px){.time-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}.time-box:last-child{grid-column:1/-1}}
+
+.check{display:flex;gap:8px;padding:8px 0}.check input{width:auto;margin-top:3px}.check label{font-size:12px;line-height:1.6}
+.output{border:1px solid var(--line);border-radius:18px;overflow:hidden}.outhead{background:linear-gradient(120deg,var(--navy),var(--violet));color:#fff;padding:20px}.outbody{padding:18px}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.meta div{padding:9px;background:var(--soft);border:1px solid var(--line);border-radius:10px}.meta b{display:block;font-size:10px;color:var(--muted);margin-bottom:3px}.meta span{font-size:12px;font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{border:1px solid var(--line);padding:8px;vertical-align:top}th{background:#F0F4FA;color:var(--navy)}
+.rights{margin-top:16px;padding-top:10px;border-top:1px solid var(--line);font-size:10px;color:#70798B;line-height:1.7}
+.note{padding:11px 13px;border-radius:12px;background:#FFF8EA;border:1px solid #F0DDB7;color:#7A5510;font-size:11px;line-height:1.6}
+.hidden{display:none!important}
+@media(max-width:900px){.guide-grid{grid-template-columns:1fr 1fr}.layout{grid-template-columns:1fr}.sidebar{position:static;display:grid;grid-template-columns:1fr 1fr}.score{grid-column:1/-1}.c8,.c6,.c4,.c3,.c2{grid-column:span 12}.meta{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.guide{margin:0 12px 14px}.guide-grid{grid-template-columns:1fr}.guide-head{align-items:flex-start}.topbar-inner{flex-direction:column;align-items:flex-start}.hero{margin:12px;padding:18px}.hero h2{font-size:23px}.layout{padding:0 12px 20px}.panel{padding:14px}.sidebar{grid-template-columns:1fr 1fr}.meta{grid-template-columns:1fr}.rights{text-align:center}}
+@media print{
+  @page{size:A4;margin:9mm}
+  html,body{background:#fff!important;font-size:10pt}
+  .topbar,.hero,.guide,.sidebar,.no-print,.top-rights{display:none!important}
+  .layout{display:block!important;padding:0!important}
+  .panel{display:none!important;border:0!important;box-shadow:none!important}
+  .panel#result{display:block!important;padding:0!important}
+  .output{border:0!important;margin:0!important;box-shadow:none!important}
+  body.print-student #qualityDocument{display:none!important}
+  body.print-quality #studentDocument{display:none!important}
+  body.print-student #studentDocument,
+  body.print-quality #qualityDocument{display:block!important}
+  .outhead{padding:9px 12px!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .outhead h2{font-size:16pt!important}
+  .outbody{padding:7px 2px!important}
+  .doc-brand{padding:6px 10px!important;margin:0 0 7px!important;border-radius:8px!important}
+  .doc-brand img{width:125px!important;max-width:26%!important;max-height:48px!important;object-fit:contain}
+  .doc-brand .brand-text strong{font-size:13pt!important}
+  .doc-brand .brand-text span{font-size:8.5pt!important}
+  .meta{grid-template-columns:repeat(3,1fr)!important;gap:4px!important}
+  .meta div{padding:5px 7px!important;border-radius:6px!important}
+  .meta b{font-size:7.5pt!important;margin-bottom:1px!important}
+  .meta span{font-size:9pt!important}
+  .kpis{gap:5px!important;margin:7px 0!important}
+  .kpi{min-width:0!important;flex:1;padding:5px 7px!important;border-radius:7px!important}
+  .kpi b{font-size:13pt!important}
+  .kpi span{font-size:7.5pt!important}
+  h3{font-size:11pt!important;margin:8px 0 4px!important;page-break-after:avoid}
+  table{font-size:8.5pt!important;line-height:1.35}
+  th,td{padding:4px 5px!important}
+  tr{break-inside:avoid;page-break-inside:avoid}
+  .preview,.note{padding:6px 8px!important;margin-top:5px!important;font-size:8.5pt!important;line-height:1.45!important}
+  .rights{margin-top:7px!important;padding-top:5px!important;font-size:7.5pt!important;line-height:1.4!important}
+  .print-block{margin-top:7px!important;break-inside:auto;page-break-inside:auto}
+  .avoid-break{break-inside:avoid;page-break-inside:avoid}
+  ul{margin:4px 0!important;padding-right:18px!important}
+  li{margin:1px 0!important}
+}
+.site-rights{
+  margin:18px 20px 28px;
+  padding:14px 16px;
+  text-align:center;
+  color:#5f6878;
+  font-size:11px;
+  line-height:1.8;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  box-shadow:0 8px 22px rgba(22,42,99,.06)
+}
+.site-rights strong{color:var(--navy)}
+@media(max-width:600px){.site-rights{margin:14px 12px 20px}}
+@media print{.site-rights{display:none!important}}
+.top-rights{
+  margin:10px 20px 0;
+  padding:10px 14px;
+  background:#F4F8FD;
+  border:1px solid var(--line);
+  border-radius:12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px 14px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#5f6878;
+  font-size:11px;
+  line-height:1.7;
+}
+.top-rights strong{color:var(--navy)}
+.top-rights span{white-space:nowrap}
+@media(max-width:600px){
+  .top-rights{margin:10px 12px 0;display:block}
+  .top-rights span{display:block;white-space:normal}
+}
+@media print{.top-rights{display:none!important}}
+
+.doc-brand{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 18px;margin-bottom:14px;border:1px solid var(--line);
+  border-radius:14px;background:#fff;
+}
+.doc-brand img{width:230px;max-width:44%;height:auto;display:block;border-radius:8px}
+.doc-brand .brand-text{flex:1;text-align:center;line-height:1.65}
+.doc-brand .brand-text strong{display:block;color:var(--navy);font-size:17px}
+.doc-brand .brand-text span{display:block;color:var(--muted);font-size:11px}
+@media(max-width:600px){
+  .doc-brand{flex-direction:column}
+  .doc-brand img{max-width:90%;width:260px}
+}
+@media print{
+  .doc-brand{break-inside:avoid}
+}
+
+.q-outcome-card{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0;background:#FCFDFE;break-inside:avoid;page-break-inside:avoid}
+.q-outcome-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.q-outcome-head strong{color:var(--navy);font-size:13px}
+.q-mini-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:6px}
+.q-item{grid-column:span 4;border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 7px;min-width:0}
+.q-item.w6{grid-column:span 6}.q-item.w8{grid-column:span 8}.q-item.w12{grid-column:span 12}
+.q-item b{display:block;font-size:8.5px;color:var(--muted);margin-bottom:2px}.q-item span{display:block;font-size:10.5px;font-weight:700;line-height:1.45;word-break:break-word}
+@media print{
+  .q-outcome-card{padding:6px!important;margin:5px 0!important;border-radius:8px!important}
+  .q-outcome-head{margin-bottom:4px!important}
+  .q-outcome-head strong{font-size:9.5pt!important}
+  .q-mini-grid{gap:3px!important}
+  .q-item{padding:4px 5px!important;border-radius:5px!important}
+  .q-item b{font-size:6.8pt!important}.q-item span{font-size:8.2pt!important;line-height:1.3!important}
+  body.print-student .outbody, body.print-quality .outbody{width:100%!important;max-width:none!important}
+  body.print-student .output, body.print-quality .output{width:100%!important;max-width:none!important;overflow:visible!important}
+  body.print-student table, body.print-quality table{width:100%!important;table-layout:fixed!important}
+  body.print-student th, body.print-student td{word-break:break-word!important}
+  body.print-quality th, body.print-quality td{word-break:break-word!important}
+}
+
+
+
+/* Direct PDF export surface - isolated from the application layout */
+.pdf-export-host{
+  position:fixed!important;left:-100000px!important;top:0!important;
+  width:190mm!important;background:#fff!important;color:#172033!important;
+  direction:rtl!important;z-index:-1!important;padding:0!important;margin:0!important;
+}
+.pdf-export-host .output{
+  width:190mm!important;max-width:190mm!important;margin:0!important;border:0!important;
+  border-radius:0!important;overflow:visible!important;box-shadow:none!important;background:#fff!important;
+}
+.pdf-export-host .outhead{padding:10px 13px!important}
+.pdf-export-host .outhead h2{font-size:19px!important}
+.pdf-export-host .outbody{padding:8px 0!important}
+.pdf-export-host .doc-brand{padding:7px 10px!important;margin:0 0 7px!important;border-radius:8px!important}
+.pdf-export-host .doc-brand img{width:130px!important;max-width:25%!important;max-height:50px!important;object-fit:contain!important}
+.pdf-export-host .doc-brand .brand-text strong{font-size:15px!important}
+.pdf-export-host .doc-brand .brand-text span{font-size:9px!important}
+.pdf-export-host .meta{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px!important}
+.pdf-export-host .meta div{padding:5px 7px!important;border-radius:6px!important;min-width:0!important}
+.pdf-export-host .meta b{font-size:8px!important;margin-bottom:1px!important}
+.pdf-export-host .meta span{font-size:10px!important;overflow-wrap:anywhere!important}
+.pdf-export-host .kpis{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px!important;margin:7px 0!important}
+.pdf-export-host .kpi{min-width:0!important;padding:5px 7px!important;border-radius:7px!important}
+.pdf-export-host .kpi b{font-size:14px!important}
+.pdf-export-host .kpi span{font-size:8px!important}
+.pdf-export-host h3{font-size:13px!important;margin:8px 0 4px!important}
+.pdf-export-host table{width:100%!important;table-layout:fixed!important;font-size:9px!important;line-height:1.32!important;border-collapse:collapse!important}
+.pdf-export-host th,.pdf-export-host td{padding:4px 5px!important;overflow-wrap:anywhere!important;word-break:normal!important}
+.pdf-export-host tr,.pdf-export-host .q-outcome-card,.pdf-export-host .doc-brand{break-inside:avoid!important;page-break-inside:avoid!important}
+.pdf-export-host .q-outcome-card{padding:7px!important;margin:5px 0!important;border-radius:8px!important}
+.pdf-export-host .q-mini-grid{gap:3px!important}
+.pdf-export-host .q-item{padding:4px 5px!important;font-size:8px!important;line-height:1.35!important}
+.pdf-export-host .q-item b{font-size:7px!important}
+.pdf-export-host .preview,.pdf-export-host .note{padding:6px 8px!important;margin-top:5px!important;font-size:9px!important;line-height:1.42!important}
+.pdf-export-host .rights{margin-top:7px!important;padding-top:5px!important;font-size:8px!important;line-height:1.4!important}
+.pdf-export-host .print-block{margin-top:7px!important}
+.pdf-export-host ul{margin:4px 0!important;padding-right:18px!important}
+.pdf-export-host li{margin:1px 0!important}
+
+
+/* خططي المحفوظة والحفظ المستمر */
+.current-plan-status{font-size:10px;color:var(--muted);padding:5px 8px;border-radius:9px;background:#F6F8FC;border:1px solid var(--line)}
+.library-modal{position:fixed;inset:0;background:rgba(16,28,58,.52);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.library-modal.open{display:flex}
+.library-dialog{width:min(1050px,96vw);max-height:90vh;overflow:auto;background:#fff;border-radius:22px;box-shadow:0 24px 80px rgba(0,0,0,.24);padding:18px}
+.library-head{display:flex;justify-content:space-between;gap:12px;align-items:center;position:sticky;top:-18px;background:#fff;padding:8px 0 12px;z-index:2;border-bottom:1px solid var(--line)}
+.library-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.library-search{flex:1;min-width:220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.library-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.plan-card{border:1px solid var(--line);border-radius:16px;padding:13px;background:#FCFDFE}
+.plan-card h4{margin:0 0 6px;color:var(--navy)}
+.plan-card .meta-line{font-size:11px;color:var(--muted);line-height:1.7}
+.plan-card .card-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.post-exec-card{border:1px solid #DDE7F3;background:#FBFDFF;border-radius:14px;padding:12px;margin:9px 0}
+.post-exec-card h4{margin:0 0 8px;color:var(--navy)}
+.post-exec-help{background:#FFF8EA;border:1px solid #F0DDB7;color:#76520E;border-radius:12px;padding:10px 12px;font-size:11px;line-height:1.8;margin:10px 0}
+@media(max-width:760px){.library-grid{grid-template-columns:1fr}.topbar-inner{align-items:flex-start}.actions{width:100%}}
+.pdf-import-box{border:1px solid #DCE6F2;background:#FBFDFF;border-radius:14px;padding:14px;margin-top:12px}
+.pdf-import-status{font-size:12px;line-height:1.8;color:#42506A;margin-top:10px}
+.pdf-progress{height:8px;background:#E9EEF5;border-radius:999px;overflow:hidden;margin-top:8px}
+.pdf-progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--violet));transition:width .25s ease}
+.pdf-import-summary{margin-top:12px;padding:12px;border-radius:12px;background:#F3FBFA;border:1px solid #CFEDE9;color:#245E59;font-size:12px;line-height:1.8}
+.pdf-import-warn{margin-top:10px;padding:10px 12px;border-radius:12px;background:#FFF8EA;border:1px solid #F0DDB7;color:#76520E;font-size:11px;line-height:1.7}
+
+
+
+/* ===== إخراج PDF احترافي عالي الدقة ===== */
+.field-help{
+  margin:-1px 0 7px;
+  padding:8px 10px;
+  border-radius:9px;
+  background:#F6F8FC;
+  border:1px solid #E5EAF2;
+  color:#5B667A;
+  font-size:10.5px;
+  line-height:1.75;
+}
+.field-help strong{color:var(--navy)}
+
+.print-doc{
+  background:#fff;
+  color:#172033;
+  direction:rtl;
+  text-align:right;
+  font-family:Tahoma,Arial,"Segoe UI",sans-serif;
+}
+.print-doc *{
+  box-sizing:border-box;
+  letter-spacing:0;
+  word-spacing:0;
+}
+.print-doc .outhead{
+  position:relative;
+  background:#162A63;
+  color:#fff;
+  padding:22px 24px;
+  border:0;
+}
+.print-doc .outhead:after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:4px;
+  background:#17B7B1;
+}
+.print-doc .outhead h2{
+  font-size:24px;
+  line-height:1.45;
+  margin:0 0 5px;
+  font-weight:800;
+}
+.print-doc .doc-subtitle{
+  font-size:11.5px;
+  line-height:1.8;
+  opacity:.92;
+}
+.print-doc .outbody{
+  padding:20px;
+}
+.print-doc .pdf-section{
+  margin-top:15px;
+}
+.print-doc .pdf-section:first-child{margin-top:0}
+.print-doc .pdf-section-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:0 0 9px;
+  padding:8px 11px;
+  border-right:4px solid #17B7B1;
+  background:#F5F8FC;
+  border-radius:8px;
+  color:#162A63;
+  font-size:13.5px;
+  font-weight:800;
+  line-height:1.5;
+}
+.print-doc .pdf-meta{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+}
+.print-doc .pdf-meta-item{
+  border:1px solid #E4E9F2;
+  border-radius:9px;
+  padding:8px 10px;
+  background:#fff;
+  min-width:0;
+}
+.print-doc .pdf-meta-item b{
+  display:block;
+  color:#657089;
+  font-size:8.5px;
+  margin-bottom:3px;
+  font-weight:700;
+}
+.print-doc .pdf-meta-item span{
+  display:block;
+  color:#172033;
+  font-size:11px;
+  line-height:1.55;
+  font-weight:700;
+  overflow-wrap:break-word;
+}
+.student-outcome-list{
+  display:grid;
+  gap:8px;
+}
+.student-outcome-card{
+  border:1px solid #DFE6F0;
+  border-radius:11px;
+  padding:10px 12px;
+  background:#fff;
+  break-inside:avoid;
+  page-break-inside:avoid;
+}
+.student-outcome-main{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+}
+.student-outcome-code{
+  flex:0 0 auto;
+  min-width:38px;
+  text-align:center;
+  padding:5px 7px;
+  border-radius:8px;
+  background:#162A63;
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+}
+.student-outcome-text{
+  flex:1;
+  font-size:11.5px;
+  line-height:1.75;
+  font-weight:700;
+  color:#172033;
+}
+.student-outcome-details{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;
+  margin-top:8px;
+}
+.student-outcome-detail{
+  padding:6px 8px;
+  border-radius:7px;
+  background:#F6F8FC;
+  border:1px solid #E8ECF3;
+  min-width:0;
+}
+.student-outcome-detail b{
+  display:block;
+  color:#657089;
+  font-size:7.5px;
+  margin-bottom:2px;
+}
+.student-outcome-detail span{
+  display:block;
+  font-size:9.3px;
+  line-height:1.5;
+  color:#27344F;
+  font-weight:700;
+}
+.session-timeline{
+  display:grid;
+  gap:6px;
+}
+.session-step{
+  display:grid;
+  grid-template-columns:42px minmax(0,1.15fr) minmax(0,1fr) minmax(0,.85fr);
+  gap:7px;
+  align-items:center;
+  border:1px solid #E2E8F1;
+  border-radius:9px;
+  padding:7px 9px;
+  background:#fff;
+  break-inside:avoid;
+  page-break-inside:avoid;
+}
+.session-time{
+  text-align:center;
+  border-radius:7px;
+  background:#EEF3FF;
+  color:#162A63;
+  padding:6px 4px;
+  font-size:9px;
+  font-weight:800;
+}
+.session-step b{
+  display:block;
+  font-size:8px;
+  color:#657089;
+  margin-bottom:2px;
+}
+.session-step span{
+  display:block;
+  font-size:9.5px;
+  line-height:1.45;
+  font-weight:700;
+  color:#27344F;
+}
+.session-break{
+  background:#F8FAFC;
+  border-style:dashed;
+}
+.assessment-link-card{
+  padding:8px 10px;
+  margin:6px 0;
+  border:1px solid #DFE6F0;
+  border-radius:9px;
+  background:#FBFCFE;
+  break-inside:avoid;
+  page-break-inside:avoid;
+}
+.assessment-link-card strong{
+  display:block;
+  color:#162A63;
+  font-size:10.5px;
+  margin-bottom:5px;
+}
+.pdf-note{
+  padding:9px 11px;
+  border:1px solid #DCE8E6;
+  border-right:4px solid #17B7B1;
+  border-radius:9px;
+  background:#F5FBFA;
+  color:#345E59;
+  font-size:9.5px;
+  line-height:1.65;
+}
+.print-doc table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  border:1px solid #DFE6F0;
+  border-radius:9px;
+  overflow:hidden;
+}
+.print-doc thead th{
+  background:#162A63;
+  color:#fff;
+  font-weight:700;
+  border:0;
+}
+.print-doc th,.print-doc td{
+  text-align:right;
+  vertical-align:top;
+  border-left:1px solid #E5EAF2;
+  border-bottom:1px solid #E5EAF2;
+}
+.print-doc tr:last-child td{border-bottom:0}
+.print-doc th:last-child,.print-doc td:last-child{border-left:0}
+.print-doc tbody tr:nth-child(even){background:#FAFBFD}
+.print-doc .rights{
+  text-align:center;
+  border-top:1px solid #E2E7EF;
+  margin-top:16px;
+  padding-top:9px;
+  color:#6B7484;
+}
+.print-doc a{
+  color:#162A63;
+  text-decoration:none;
+  overflow-wrap:anywhere;
+}
+
+/* إزالة أي تشويش typographic أو تمديد غير طبيعي للكلمات في نسخة PDF */
+.pdf-export-host,
+.pdf-export-host *{
+  letter-spacing:0!important;
+  word-spacing:0!important;
+  text-align:right;
+  text-rendering:geometricPrecision;
+  -webkit-font-smoothing:antialiased;
+  font-kerning:normal;
+}
+.pdf-export-host .outhead,
+.pdf-export-host .outhead *{
+  color:#fff!important;
+}
+.pdf-export-host{
+  width:196mm!important;
+  font-family:Tahoma,Arial,"Segoe UI",sans-serif!important;
+}
+.pdf-export-host .output{
+  width:196mm!important;
+  max-width:196mm!important;
+}
+.pdf-export-host .outbody{
+  padding:11mm 8mm!important;
+}
+.pdf-export-host .outhead{
+  padding:10mm 9mm 8mm!important;
+}
+.pdf-export-host .outhead h2{
+  font-size:20px!important;
+  line-height:1.45!important;
+}
+.pdf-export-host .doc-subtitle{
+  font-size:10px!important;
+  line-height:1.6!important;
+}
+.pdf-export-host .pdf-section{margin-top:10px!important}
+.pdf-export-host .pdf-section-title{
+  margin-bottom:6px!important;
+  padding:6px 8px!important;
+  font-size:11px!important;
+  border-radius:6px!important;
+}
+.pdf-export-host .pdf-meta{gap:4px!important}
+.pdf-export-host .pdf-meta-item{padding:5px 7px!important;border-radius:6px!important}
+.pdf-export-host .pdf-meta-item b{font-size:7px!important}
+.pdf-export-host .pdf-meta-item span{font-size:9px!important;line-height:1.45!important}
+.pdf-export-host .student-outcome-list{gap:5px!important}
+.pdf-export-host .student-outcome-card{padding:7px 8px!important;border-radius:7px!important}
+.pdf-export-host .student-outcome-code{min-width:32px!important;padding:4px 5px!important;font-size:8px!important;border-radius:5px!important}
+.pdf-export-host .student-outcome-text{font-size:9.5px!important;line-height:1.62!important}
+.pdf-export-host .student-outcome-details{gap:3px!important;margin-top:5px!important}
+.pdf-export-host .student-outcome-detail{padding:4px 5px!important;border-radius:5px!important}
+.pdf-export-host .student-outcome-detail b{font-size:6.2px!important}
+.pdf-export-host .student-outcome-detail span{font-size:7.6px!important;line-height:1.4!important}
+.pdf-export-host .session-timeline{gap:4px!important}
+.pdf-export-host .session-step{
+  grid-template-columns:36px minmax(0,1.15fr) minmax(0,1fr) minmax(0,.85fr)!important;
+  gap:4px!important;padding:5px 6px!important;border-radius:6px!important;
+}
+.pdf-export-host .session-time{padding:4px 3px!important;font-size:7.5px!important;border-radius:5px!important}
+.pdf-export-host .session-step b{font-size:6.5px!important}
+.pdf-export-host .session-step span{font-size:7.8px!important;line-height:1.4!important}
+.pdf-export-host .assessment-link-card{padding:5px 7px!important;margin:4px 0!important;border-radius:6px!important}
+.pdf-export-host .assessment-link-card strong{font-size:8px!important;margin-bottom:3px!important}
+.pdf-export-host .pdf-note{padding:6px 8px!important;font-size:8px!important;line-height:1.5!important;border-radius:6px!important}
+.pdf-export-host table{font-size:8.2px!important;line-height:1.42!important;border-radius:6px!important}
+.pdf-export-host th,.pdf-export-host td{padding:4px 5px!important;word-break:normal!important;overflow-wrap:break-word!important}
+.pdf-export-host .q-outcome-card{background:#fff!important;border-color:#DFE6F0!important}
+.pdf-export-host .q-item{background:#FAFBFD!important;border-color:#E4E9F2!important}
+.pdf-export-host .rights{font-size:7.5px!important;line-height:1.45!important;margin-top:8px!important}
+
+/* الطباعة من المتصفح - نفس الهوية الاحترافية */
+@media print{
+  .print-doc *{letter-spacing:0!important;word-spacing:0!important}
+  .print-doc .outhead{background:#162A63!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .print-doc .pdf-section-title{background:#F5F8FC!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .print-doc thead th{background:#162A63!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .print-doc .student-outcome-code{background:#162A63!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+
+.imported-field{
+  border-color:#17B7B1!important;
+  box-shadow:0 0 0 3px rgba(23,183,177,.10)!important;
+  background:#FBFFFE!important;
+}
+.imported-card{
+  border-color:#17B7B1!important;
+  box-shadow:0 0 0 2px rgba(23,183,177,.08)!important;
+}
+
+/* ===== مراجعة استيراد PDF ===== */
+.review-head{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+  margin:14px 0 10px;padding:12px 14px;border-radius:12px;
+  background:#F6F4FF;border:1px solid #DDD5FA
+}
+.review-head h4{margin:0;color:#4A368F;font-size:15px}
+.review-head p{margin:4px 0 0;color:#665B86;font-size:11px;line-height:1.65}
+.review-section{
+  margin-top:12px;padding:12px;border:1px solid #E1E7F0;border-radius:13px;background:#fff
+}
+.review-section h5{margin:0;color:var(--navy);font-size:13px}
+.review-section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.review-note{
+  margin:7px 0 10px;padding:8px 10px;border-radius:9px;background:#FFF8EA;border:1px solid #F0DDB7;
+  color:#76520E;font-size:10.5px;line-height:1.65
+}
+.review-list{display:grid;gap:8px}
+.review-card{
+  border:1px solid #E3E8F0;border-radius:11px;padding:10px;background:#FBFCFE
+}
+.review-card-grid{
+  display:grid;grid-template-columns:90px 135px minmax(220px,1fr) 42px;gap:7px;align-items:end
+}
+.review-card-grid.activity{
+  grid-template-columns:minmax(170px,1.15fr) minmax(170px,1fr) minmax(120px,.8fr) 92px 42px
+}
+.review-card label{display:block;font-size:9px;color:#667188;margin-bottom:4px;font-weight:700}
+.review-card input,.review-card select{width:100%}
+.review-remove{
+  border:1px solid #F0CBD2;background:#FFF7F8;color:#A33A4E;border-radius:8px;height:38px;font-weight:800
+}
+.review-empty{
+  padding:12px;text-align:center;border:1px dashed #D5DDE8;border-radius:10px;color:#788397;font-size:11px
+}
+.review-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+@media(max-width:800px){
+  .review-card-grid,.review-card-grid.activity{grid-template-columns:1fr 1fr}
+  .review-remove{grid-column:1/-1}
+}
+
+
+/* ===== PDF عربي حقيقي عبر طباعة المتصفح ===== */
+@media print{
+  @page{
+    size:A4 portrait;
+    margin:8mm;
+  }
+
+  html,body{
+    direction:rtl!important;
+    background:#fff!important;
+    -webkit-print-color-adjust:exact!important;
+    print-color-adjust:exact!important;
+  }
+
+  body.print-student,
+  body.print-quality{
+    font-family:Tahoma,Arial,"Segoe UI",sans-serif!important;
+  }
+
+  body.print-student #studentDocument,
+  body.print-quality #qualityDocument{
+    direction:rtl!important;
+    text-align:right!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    box-shadow:none!important;
+    border:0!important;
+    background:#fff!important;
+  }
+
+  body.print-student #studentDocument *,
+  body.print-quality #qualityDocument *{
+    box-sizing:border-box!important;
+    letter-spacing:normal!important;
+    word-spacing:normal!important;
+    text-rendering:auto!important;
+    -webkit-font-smoothing:auto!important;
+  }
+
+  /* هذه العناصر تحتوي فقرات عربية أو عربية/إنجليزية مختلطة.
+     plaintext يجعل محرك المتصفح يعالج اتجاه كل سطر بدل قلب الكلمات. */
+  .pdf-meta-item span,
+  .student-outcome-text,
+  .student-outcome-detail span,
+  .session-step span,
+  .assessment-link-card,
+  .pdf-note,
+  .q-item span,
+  .preview,
+  .note,
+  td,
+  th{
+    direction:rtl!important;
+    unicode-bidi:plaintext!important;
+    text-align:right!important;
+    white-space:normal!important;
+  }
+
+  /* الكلمات الإنجليزية القصيرة مثل Teams / Canva تبقى سليمة */
+  .session-step span,
+  .pdf-meta-item span,
+  .student-outcome-detail span{
+    overflow-wrap:break-word!important;
+  }
+
+  .print-doc .outhead{
+    background:#162A63!important;
+    color:#fff!important;
+    border-radius:0!important;
+  }
+
+  .print-doc .outhead *,
+  .print-doc .student-outcome-code{
+    color:#fff!important;
+  }
+
+  .print-doc .pdf-section-title,
+  .print-doc .pdf-meta-item,
+  .print-doc .student-outcome-card,
+  .print-doc .session-step,
+  .print-doc .assessment-link-card,
+  .print-doc .pdf-note,
+  .print-doc .q-outcome-card,
+  .print-doc .q-item,
+  .print-doc table{
+    break-inside:avoid!important;
+    page-break-inside:avoid!important;
+  }
+
+  .print-doc a{
+    color:#162A63!important;
+    text-decoration:none!important;
+  }
+}
+
+
+@media(max-width:760px){
+  #resumePlanHelp > div[style*="grid-template-columns"]{
+    grid-template-columns:1fr!important;
+  }
+}
+
+
+/* Administrative attendance: independent of learning activities */
+.attendance-admin{margin:16px 0 14px;padding:16px;border-radius:16px;border:1px solid #BFDAD9;background:linear-gradient(130deg,#F2FBFA,#FFFFFF)}
+.attendance-admin-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px}
+.attendance-admin h4{font-size:15px;color:var(--navy);margin:6px 0 5px}
+.attendance-admin p{font-size:11px;line-height:1.8;color:#4E6171;margin:0}
+.attendance-admin-badge{display:inline-flex;border:1px solid #B6DAD7;border-radius:100px;background:#E7F7F5;padding:3px 9px;font-size:10px;color:#166A65;font-weight:700}
+.attendance-admin-icon{border-radius:11px;background:#DFF2F0;color:#166A65;padding:8px 12px;font-size:19px;font-weight:900}
+.activity-section-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:16px 0 10px;flex-wrap:wrap}
+.activity-section-heading h4{margin:0;color:var(--navy);font-size:14px}
+.activity-section-heading span{font-size:11px;color:var(--muted)}
+@media(max-width:700px){.attendance-admin{padding:12px}.attendance-admin-icon{display:none}.attendance-admin-head{margin-bottom:10px}.attendance-admin .c4,.attendance-admin .c8{grid-column:span 12!important}}
+
+
+.session-attendance{background:#EFF9F7!important;border-color:#C3E3DD!important}
+.attendance-report-row td{background:#F1F9F7!important}
+
+/* Keep the usage guide readable on phones despite older inline grid settings. */
+@media(max-width:760px){
+  .guide-grid{grid-template-columns:1fr!important}
+  .guide-step{min-width:0}
+  .guide-step p,.guide-source{font-size:12px!important;line-height:1.85!important}
+  .guide-body{padding:12px!important}
+  .guide-intro{font-size:12px!important;line-height:1.9!important}
+}
+</style>
+<!-- لا توجد حاجة لتحميل قارئ PDF: الاسترجاع عبر TXT فقط -->
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+<div class="topbar-inner">
+  <div class="brand">
+    <h1>مخطط الدرس السريع</h1>
+  </div>
+  <div class="actions no-print">
+    <button class="btn primary" onclick="saveCurrentPlan()">💾 حفظ الآن</button>
+    <button class="btn" onclick="openPlanLibrary()">📚 خططي المحفوظة</button>
+    <button class="btn" onclick="exportCurrentPlanTxt()">⬇ TXT للخطة</button>
+    <button class="btn" onclick="document.getElementById('planTxtImportFile').click()">⬆ استيراد TXT</button>
+    <input id="planTxtImportFile" type="file" accept="text/plain,.txt" style="display:none" onchange="importCurrentPlanTxt(this)">
+    <button class="btn" onclick="duplicateCurrentPlan()">⧉ نسخ الخطة</button>
+    <button class="btn teal" onclick="showPanel('result')">معاينة / بعد التنفيذ</button>
+    <span class="current-plan-status" id="currentPlanStatus">مسودة محفوظة تلقائيًا</span>
+  </div>
+</div>
+</header>
+
+<div class="library-modal no-print" id="planLibraryModal" onclick="if(event.target===this)closePlanLibrary()">
+  <div class="library-dialog">
+    <div class="library-head">
+      <div><h3 style="margin:0;color:var(--navy)">خططي المحفوظة</h3><div style="font-size:11px;color:var(--muted);margin-top:4px">«خططي المحفوظة» هي قائمة بالخطط التي أنشأتها سابقًا على هذا المتصفح. استخدمها فقط عندما تريد الرجوع لخطة قديمة أو الانتقال بين مقررات مختلفة.</div></div>
+      <button class="iconbtn" onclick="closePlanLibrary()">×</button>
+    </div>
+    <div class="library-toolbar">
+      <input id="librarySearch" class="library-search" placeholder="ابحث باسم المقرر أو الأسبوع أو عنوان الدرس" oninput="renderPlanLibrary()">
+      <button class="btn teal" onclick="newPlan()">＋ خطة جديدة</button>
+      <button class="btn" onclick="exportAllPlans()">⬇ تصدير نسخة احتياطية</button>
+      <button class="btn" onclick="document.getElementById('plansImportFile').click()">⬆ استيراد نسخة احتياطية</button>
+      <input id="plansImportFile" type="file" accept="application/json,.json" style="display:none" onchange="importPlansFromFile(this)">
+    </div>
+    <div class="note" style="margin-bottom:12px"><strong>للأعضاء الذين يدرسون أكثر من مقرر:</strong> ستظهر كل خطة محفوظة داخل «خططي المحفوظة» باسم المقرر والأسبوع وعنوان الدرس. لا تحتاج لفتحها بعد كل حفظ؛ ارجع إليها فقط في وقت لاحق.</div>
+    <div class="library-grid" id="planLibraryList"></div>
+  </div>
+</div>
+
+
+
+<div class="top-rights">
+  <strong>إعداد وتصميم: نور أحمد الزهراني</strong>
+  <span>جميع حقوق تصميم وإعداد الأداة محفوظة.</span>
+</div>
+
+
+<section class="hero">
+<h2>أداة توليد تلقائي لخطة الدرس</h2>
+</section>
+
+<section class="guide no-print" id="userGuide">
+  <div class="guide-head">
+    <div>
+      <h3>دليل الاستخدام — من إعداد الخطة إلى توثيق التنفيذ</h3>
+      <p>تعبئة مرة واحدة فقط؛ تحفظ الأداة عملك تلقائيًا، وتكمل على نفس الخطة قبل المحاضرة وبعدها دون إعادة إدخال.</p>
+    </div>
+    <button class="guide-toggle" id="guideToggle" onclick="toggleGuide()">إخفاء الدليل</button>
+  </div>
+
+  <div class="guide-body" id="guideBody">
+    <div class="guide-intro">
+      <strong>الفكرة الأساسية:</strong>
+      أنشئ خطة الدرس قبل المحاضرة مرة واحدة. تحفظ الأداة المسودة تلقائيًا، وعند اكتمال بيانات المقرر والأسبوع والعنوان تُربط الخطة بخططي المحفوظة تلقائيًا.
+      بعد التنفيذ ارجع إلى الأداة نفسها وأكمل على نفس الخطة مباشرة؛ لا تحتاج إلى حفظها ثم استرجاعها من المكتبة أثناء نفس العمل.
+      وإذا كانت الخطة موحدة لعدة شعب في المقرر نفسه، تُنشأ <strong>خطة واحدة للمقرر والأسبوع</strong> ولا تُدخل بيانات خاصة بكل شعبة.
+    </div>
+    <div class="guide-intro" style="background:#F6F4FF;border-color:#DDD5FA;color:#514080">
+      <strong>هل تريد استكمال خطة محفوظة؟</strong>
+      للاسترجاع الدقيق استخدم <strong>«TXT للخطة»</strong> عند الحفظ، ثم لاحقًا <strong>«استيراد TXT»</strong> فتعود الخانات ونواتج التعلم والخطة الزمنية مباشرة.
+      لا تحتاج إلى إعادة بناء الخطة يدويًا من البداية.
+    </div>
+    <div class="guide-intro" style="background:#F3FBFA;border-color:#CFEDE9;color:#245E59">
+      <strong>اسم ملف TXT:</strong>
+      يُحفظ تلقائيًا بهذا الترتيب: <strong>عنوان الدرس - الأسبوع - المقرر.txt</strong> حتى يسهل العثور عليه لاحقًا.
+    </div>
+
+
+    <div class="guide-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="guide-step">
+        <div class="n">1</div>
+        <h4>ابدأ بمعلومات الدرس</h4>
+        <p>أدخل البرنامج/الدبلوم، اسم المقرر، الأسبوع، عنوان الدرس، مدة اللقاء، واسم عضو/عضوة هيئة التدريس.</p>
+        <div class="guide-source">
+          <b>من أين تستقي المعلومة؟</b><br>
+          توصيف المقرر المعتمد وخطة توزيع المحتوى على الأسابيع.
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="n">2</div>
+        <h4>اربط الدرس بنواتج التعلم</h4>
+        <p>أضف فقط CLOs التي يخدمها درس اليوم، واختر الفعل كما ورد في التوصيف، ثم اكتب المحتوى المرتبط بالناتج.</p>
+        <div class="guide-source">
+          <b>الأداة تساعدك:</b><br>
+          تقترح استراتيجية التدريس، النشاط، أداة التقويم، أداة التصحيح، ودليل التوثيق، ويمكن تعديل أي اقتراح.
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="n">3</div>
+        <h4>أنشئ الخطة الزمنية</h4>
+        <p>اضغط «إنشاء وتوزيع الوقت تلقائيًا»، ثم عدّل الدقائق فقط عند الحاجة. يظهر لك الوقت المستخدم والمتبقي مباشرة.</p>
+        <div class="guide-source">
+          <b>تحضير الطلاب = تسجيل الحضور والغياب:</b><br>
+          إجراء تنظيمي مستقل، مدته قابلة للتعديل (مثل 15 دقيقة)، ويمكن وضعه في بداية اللقاء أو وسطه أو نهايته حسب رغبة عضو هيئة التدريس. لا يُعد نشاطًا تعليميًا.
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="n">4</div>
+        <h4>الحفظ تلقائي أثناء العمل</h4>
+        <p>لا تحتاج إلى حفظ الخطة ثم فتحها من جديد. الأداة تحفظ المسودة تلقائيًا، وعندما تدخل المقرر والأسبوع وعنوان الدرس تُنشئ لها سجلًا في خططي المحفوظة تلقائيًا عند الانتقال إلى صفحة الحفظ أو إضافة أدلة التنفيذ.</p>
+        <div class="guide-source">
+          <b>خططي المحفوظة متى تستخدمها؟</b><br>
+          فقط عندما تريد الرجوع لاحقًا إلى خطة قديمة، أو الانتقال بين عدة مقررات وخطط محفوظة.
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="n">5</div>
+        <h4>بعد تنفيذ المحاضرة</h4>
+        <p>إذا كنت ما زلت على نفس الخطة، أكمل مباشرة في قسم «بعد التنفيذ» دون فتح المكتبة. وإذا رجعت للأداة في وقت لاحق، افتح الخطة من المكتبة مرة واحدة ثم أضف الأدلة فقط.</p>
+        <div class="guide-source">
+          <b>أمثلة الأدلة:</b><br>
+          رابط عينة من أعمال الطلاب، تقرير نتائج التقويم، رابط النشاط أو الاختبار، أو أي دليل مطلوب حسب متطلبات الجودة.
+          <br><strong>هذه الخطوة اختيارية ولا تدخل في اكتمال الخطة قبل التنفيذ.</strong>
+        </div>
+      </div>
+
+      <div class="guide-step">
+        <div class="n">6</div>
+        <h4>استخدم الخطة لاحقًا بسهولة</h4>
+        <p>يمكنك فتح الخطة، تعديلها، أو الضغط على <strong>«نسخ الخطة»</strong> لإنشاء نسخة جديدة للأسبوع التالي بدل البدء من الصفر.</p>
+        <div class="guide-source">
+          <b>عند تغيير الجهاز أو المتصفح:</b><br>
+          من «خططي المحفوظة» صدّر نسخة احتياطية، ثم استخدم «استيراد نسخة احتياطية» على الجهاز الآخر.
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="guide-intro" style="background:#FFF8EA;border-color:#F0DDB7;color:#76520E">
+      <strong>عند حفظ PDF:</strong>
+      تفتح الأداة نافذة الطباعة الأصلية في المتصفح. اختر <strong>حفظ بصيغة PDF / Save as PDF</strong>.
+      لا تستخدم لقطة شاشة أو طباعة كصورة؛ بهذه الطريقة تبقى العربية متصلة وواضحة وقابلة للبحث والتحديد.
+    </div>
+
+<div class="guide-result">
+      <strong>ماذا تحصل عليه في النهاية؟</strong><br>
+      <strong>PDF خطة المحاضرة للطلاب:</strong> ملف جاهز للرفع على منصة المقرر قبل المحاضرة، ويشمل نواتج التعلم وخطة التنفيذ والأنشطة والتقويم الموجه للطلاب.<br>
+      <strong>ملف الجودة PDF:</strong> المواءمة بين CLO والمحتوى والتدريس والنشاط والتقويم وأداة التصحيح وأدلة التوثيق والزمن.<br>
+      <strong>مكتبة خطط محفوظة:</strong> للرجوع إلى كل مقرر وأسبوع دون إعادة إدخال البيانات.<br><br>
+      <strong>مهم:</strong> لا تحتاج إلى حفظ الخطة ثم استرجاعها أثناء نفس الجلسة؛ أكمل عليها مباشرة. الخطط محفوظة محليًا في المتصفح، ويُنصح بتصدير نسخة احتياطية دوريًا قبل تغيير الجهاز أو مسح بيانات المتصفح.<br><strong>لأفضل استرجاع:</strong> احفظ ملف TXT مع كل خطة؛ فهو النسخة المرجعية القابلة للاستيراد بدقة مباشرة. PDF مخصص للمشاركة والطباعة، ويمكن استخدامه أيضًا كخيار استيراد مساعد.
+    </div>
+  </div>
+</section>
+
+<div class="layout">
+<aside class="sidebar no-print">
+  <button class="navbtn active" data-p="basic" onclick="showPanel('basic')">1. معلومات الدرس</button>
+  <button class="navbtn" data-p="los" onclick="showPanel('los')">2. ماذا سيتعلم الطالب؟</button>
+  <button class="navbtn" data-p="plan" onclick="showPanel('plan')">3. خطة المحاضرة</button>
+  <button class="navbtn" data-p="result" onclick="showPanel('result')">4. حفظ ومشاركة الخطة</button>
+  <div class="score"><div style="display:flex;justify-content:space-between"><b>اكتمال الخطة قبل التنفيذ</b><b id="scoreText">0%</b></div><div class="meter"><div id="scoreBar"></div></div></div>
+</aside>
+
+<main class="main">
+<section class="panel active" id="basic">
+<div id="pdfImportAppliedBanner" class="hidden no-print" style="margin-bottom:12px;padding:12px 14px;border-radius:12px;background:#F3FBFA;border:1px solid #CFEDE9;color:#245E59;line-height:1.8">
+  <strong>تم تعبئة الخطة من ملف PDF.</strong>
+  <span id="pdfImportAppliedText">راجع الحقول المظللة ثم أكمل عليها مباشرة.</span>
+</div>
+<h3>1. معلومات الدرس</h3>
+<p class="sub">معلومات أساسية مختصرة فقط، والباقي تتولى الأداة تنظيمه.</p>
+<div class="grid">
+  <div class="field c6"><label>البرنامج / الدبلوم</label><input id="program" placeholder="مثال: دبلوم إدارة الأعمال"></div>
+  <div class="field c6"><label>المقرر</label><input id="course" placeholder="مثال: إدارة المخاطر"></div>
+  <div class="field c3"><label>الأسبوع</label><input id="week" placeholder="الأسبوع الرابع"></div>
+  <div class="field c3"><label>مدة اللقاء كاملة</label><select id="duration" onchange="syncDurationUI();updateAll()">
+    <option value="60">60 دقيقة — ساعة واحدة</option>
+    <option value="120">120 دقيقة — ساعتان</option>
+    <option value="180" selected>180 دقيقة — 3 ساعات</option>
+    <option value="240">240 دقيقة — 4 ساعات</option>
+    <option value="300">300 دقيقة — 5 ساعات</option>
+  </select><div class="duration-helper" id="durationHelper">مدة اللقاء كاملة: 180 دقيقة. الأداة ستوزعها تلقائيًا؛ لا تحتاج إلى جمع الدقائق يدويًا.</div></div>
+  <div class="field c8"><label>عنوان الدرس</label><input id="title" placeholder="عنوان الدرس"></div>
+  <div class="field c4"><label>عضو/عضوة هيئة التدريس</label><input id="instructor" placeholder="الاسم"></div>
+  <div class="field c6"><label>مصدر التعلم الرئيسي</label>
+    <select id="resource"><option>شرائح المحاضرة</option><option>الكتاب</option></select>
+  </div>
+  <div class="field c6">
+    <label>المعرفة السابقة <span style="font-weight:400;color:var(--muted)">(اختياري)</span></label>
+    <select id="prior">
+      <option value="">لا يوجد / لا يلزم</option>
+      <option>مراجعة مفاهيم الدرس السابق</option>
+      <option>معرفة تعريفات أساسية مرتبطة بالموضوع</option>
+      <option>إكمال قراءة أو مشاهدة مادة قبلية</option>
+    </select>
+  </div>
+</div>
+<div class="note" style="margin-top:12px">
+  <strong>ملاحظة:</strong> إذا كانت الخطة نفسها تُطبق على أكثر من شعبة للمقرر نفسه، تُعد خطة واحدة للمقرر والأسبوع، ولا تُدخل فيها بيانات خاصة بكل شعبة.
+</div>
+<div style="margin-top:14px;text-align:left">
+  <button class="btn teal" onclick="showPanel('los')">التالي: نواتج التعلم ←</button>
+</div>
+</section>
+
+<section class="panel" id="los">
+<h3>2. ماذا سيتعلم الطالب؟</h3>
+<p class="sub">اختر CLO والفعل واكتب المحتوى فقط؛ الأداة تقترح بقية عناصر المواءمة تلقائيًا ويمكن تعديلها.</p>
+<div class="note" style="margin-bottom:12px">
+  تتضمن قائمة الأفعال الأفعال الواردة في توصيفات المقررات المستخدمة في الأداة، بما فيها أفعال المعرفة والمهارات والقيم. اختر الفعل كما ورد في ناتج التعلم المعتمد.
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+  <div>
+    <b style="color:var(--navy)">نواتج الدرس</b>
+    <div style="font-size:10px;color:var(--muted);margin-top:3px">أضف فقط النواتج التي يخدمها هذا الدرس فعليًا.</div>
+  </div>
+  <button class="btn teal" onclick="addLO()">＋ إضافة ناتج</button>
+</div>
+<div id="loList"></div>
+<div class="note">
+  <strong>لتوفير الوقت:</strong> عند تغيير الفعل، تقترح الأداة تلقائيًا استراتيجية تدريس ونشاطًا وتقويمًا وأداة تصحيح ودليل جودة مناسبًا. ويمكن تعديل أي اقتراح.
+</div>
+<div style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap">
+  <button class="btn" onclick="showPanel('basic')">→ السابق</button>
+  <button class="btn teal" onclick="showPanel('plan')">التالي: خطة المحاضرة ←</button>
+</div>
+</section>
+
+<section class="panel" id="plan">
+<h3>3. خطة المحاضرة</h3>
+<p class="sub"><strong>لا تحسب الدقائق يدويًا.</strong> اضغط «إنشاء وتوزيع الوقت تلقائيًا»، ثم عدّل فقط إذا احتجت.</p>
+
+<div class="card" style="background:#F4FBFA;border-color:#CBECE8">
+  <div class="card-head">
+    <div>
+      <span class="badge">الطريقة الأسهل</span>
+      <b style="color:var(--navy);margin-right:7px">الأداة تضبط الوقت عنك</b>
+    </div>
+  </div>
+  <p class="sub" style="margin-bottom:10px">مدة اللقاء والاستراحة محسوبتان تلقائيًا. اضغط الزر مرة واحدة لإنشاء مراحل المحاضرة وتوزيع الدقائق عليها.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="btn teal" onclick="applyPlanTemplate()">⚡ إنشاء وتوزيع الوقت تلقائيًا</button>
+
+
+    <button class="btn" onclick="fixTimeAutomatically()">🪄 ضبط المتبقي تلقائيًا</button>
+  </div>
+</div>
+
+<div class="time-dashboard">
+  <div class="time-box"><b id="durationMinsDisplay">180</b><span>مدة اللقاء كاملة</span></div>
+  <div class="time-box"><b id="breakMinsDisplay">30</b><span>الاستراحة</span></div>
+  <div class="time-box"><b id="attendanceMinsDisplay">15</b><span>الحضور والغياب</span></div>
+  <div class="time-box"><b id="targetMinsDisplay">135</b><span>المتاح للتدريس والأنشطة</span></div>
+  <div class="time-box"><b id="usedMinsDisplay">0</b><span>تم توزيعه</span></div>
+  <div class="time-box remaining warn" id="remainingBox"><b id="remainingMinsDisplay">150</b><span>المتبقي</span></div>
+</div>
+<div class="time-status warn" id="timeStatus">باقي 150 دقيقة. اضغط «إنشاء وتوزيع الوقت تلقائيًا».</div>
+
+<div class="card" style="margin-top:12px">
+  <div class="grid">
+    <div class="field c6">
+      <label>هل توجد استراحة 30 دقيقة؟</label>
+      <select id="breakMode" onchange="toggleBreakCustom();updateAll()">
+        <option value="flex" selected>نعم — تُخصم 30 دقيقة تلقائيًا</option>
+        <option value="0">لا — بدون استراحة</option>
+      </select>
+      <div class="duration-helper">لا تضف الاستراحة داخل مراحل المحاضرة؛ الأداة تحسبها وحدها.</div>
+    </div>
+    <div class="field c6 hidden" id="breakCustomWrap">
+      <label>ملاحظة عن توزيع الاستراحة <span style="font-weight:400;color:var(--muted)">(اختياري)</span></label>
+      <input id="breakCustom" placeholder="مثال: 15 + 15" oninput="updateAll()">
+    </div>
+  </div>
+</div>
+
+<div class="attendance-admin" id="attendanceAdmin">
+  <div class="attendance-admin-head">
+    <div>
+      <span class="attendance-admin-badge">إجراء تنظيمي مستقل</span>
+      <h4>تحضير الطلاب (تسجيل الحضور والغياب)</h4>
+      <p>ليس نشاطًا تعليميًا، ولا يرتبط بنواتج التعلم. حدّد المدة ومكان تسجيل الحضور والغياب وفق أسلوبك في المحاضرة.</p>
+    </div>
+    <span class="attendance-admin-icon" aria-hidden="true">✓</span>
+  </div>
+  <div class="grid">
+    <div class="field c4">
+      <label for="attendanceMinutes">مدة تسجيل الحضور والغياب (بالدقائق)</label>
+      <div class="minute-control">
+        <button type="button" onclick="adjustAttendanceMinutes(-5)" aria-label="تقليل مدة التحضير خمس دقائق">−5</button>
+        <input id="attendanceMinutes" type="number" min="0" max="60" step="5" value="15" inputmode="numeric" oninput="updateAll()">
+        <button type="button" onclick="adjustAttendanceMinutes(5)" aria-label="زيادة مدة التحضير خمس دقائق">+5</button>
+      </div>
+    </div>
+    <div class="field c8">
+      <label for="attendancePosition">متى يُسجَّل الحضور والغياب؟</label>
+      <select id="attendancePosition" onchange="updateAll()">
+        <option value="end" selected>في نهاية اللقاء</option>
+        <option value="start">في بداية اللقاء</option>
+      </select>
+      <div class="duration-helper">يمكنك وضع التحضير بعد أي مرحلة من مراحل المحاضرة أيضًا. يتغير ترتيب الخطة في PDF الطالب وتقرير الجودة تلقائيًا.</div>
+    </div>
+  </div>
+</div>
+
+<div class="activity-section-heading">
+  <h4>مراحل التدريس والأنشطة</h4>
+  <span>لا تشمل تسجيل الحضور والغياب</span>
+</div>
+<div id="actList"></div>
+<button class="btn" onclick="addActivity()">＋ إضافة مرحلة تعليمية يدويًا</button>
+
+<div class="kpis hidden">
+  <div class="kpi"><b id="mins">0</b><span>إجمالي الدقائق</span></div>
+  <div class="kpi"><b id="diff">0</b><span>الفرق عن مدة المحاضرة</span></div>
+</div>
+
+
+<details class="card" style="margin-top:12px">
+  <summary style="cursor:pointer;font-weight:800;color:var(--navy)">خيارات التوثيق والجودة</summary>
+  <div class="grid" style="margin-top:12px">
+    <div class="field c6"><label>مكان حفظ الدليل</label>
+      <select id="store"><option>LMS / نظام إدارة التعلم</option><option>ملف أدلة المقرر</option><option>Teams</option><option>Microsoft Forms</option><option>ملف الجودة</option></select>
+    </div>
+    <div class="field c6"><label>التغذية الراجعة</label>
+      <select id="feedback"><option>فورية أثناء الدرس</option><option>تلقائية بعد الاختبار</option><option>تعليق مكتوب مختصر</option><option>Rubric / سلم تقدير</option><option>مناقشة جماعية</option></select>
+    </div>
+  </div>
+</details>
+
+<h3 style="margin-top:18px">التحقق الآلي</h3>
+<div class="kpis" style="margin-top:8px">
+  <div class="kpi"><b id="autoQualityScore">0%</b><span>استيفاء ما قبل التنفيذ</span></div>
+  <div class="kpi"><b id="autoQualityStatus">—</b><span>حالة الخطة</span></div>
+</div>
+
+<div style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap">
+  <button class="btn" onclick="showPanel('los')">→ السابق</button>
+  <button class="btn primary" onclick="showPanel('result')">حفظ ومشاركة الخطة ←</button>
+</div>
+</section>
+
+<section class="panel" id="result">
+
+<div class="card no-print" id="resumePlanHelp" style="margin-bottom:14px;border:1px solid #D9E4F2;background:#FBFDFF">
+  <h3 style="margin-top:0;color:var(--navy)">استكمال خطة سابقة وإضافة أدلة الجودة</h3>
+  <p class="sub" style="margin-bottom:10px">
+    يمكنكم إعداد خطة المحاضرة للطلاب أولًا، ثم العودة إليها لاحقًا بعد تنفيذ المحاضرة لاستكمال أدلة الجودة وإصدار ملف الجودة، وذلك بإحدى الطريقتين:
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+    <div style="padding:12px;border:1px solid #E2E8F1;border-radius:12px;background:#fff">
+      <strong style="color:var(--navy)">1) الحفظ في «خططي المحفوظة»</strong>
+      <p style="margin:7px 0 0;font-size:11px;line-height:1.8;color:#4E5A70">
+        بعد تعبئة بيانات خطة المحاضرة، اضغطوا <strong>«حفظ الآن»</strong>.
+        ستظهر الخطة داخل <strong>«خططي المحفوظة»</strong>، ويمكن فتحها لاحقًا ومتابعة العمل عليها وإضافة أدلة التنفيذ والجودة دون إعادة تعبئة البيانات من البداية.
+      </p>
+      <div class="note" style="margin-top:8px">
+        <strong>ملاحظة:</strong> تعمل هذه الطريقة عند استخدام <strong>نفس الجهاز ونفس المتصفح</strong> الذي حُفظت عليه الخطة.
+      </div>
+    </div>
+
+    <div style="padding:12px;border:1px solid #E2E8F1;border-radius:12px;background:#fff">
+      <strong style="color:var(--navy)">2) الحفظ والاسترجاع باستخدام TXT</strong>
+      <p style="margin:7px 0 0;font-size:11px;line-height:1.8;color:#4E5A70">
+        بعد إعداد الخطة، اضغطوا <strong>«TXT للخطة»</strong> لحفظ نسخة قابلة للاسترجاع على الجهاز.
+        وعند الرغبة في استكمال الخطة لاحقًا، استخدموا <strong>«استيراد TXT»</strong>، وستتم تعبئة بيانات الخطة تلقائيًا، ثم يمكن إضافة أدلة التنفيذ واستكمال متطلبات الجودة وإصدار <strong>PDF الجودة</strong>.
+      </p>
+      <div class="note" style="margin-top:8px;background:#F3FBFA;border-color:#CFEDE9;color:#245E59">
+        <strong>الأفضل:</strong> حفظ ملف TXT لكل خطة؛ لأنه يتيح استرجاعها حتى عند استخدام جهاز أو متصفح مختلف.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="note no-print" style="margin-bottom:12px;background:#F3FBFA;border-color:#CFEDE9;color:#245E59">
+  <strong>مهم:</strong> أنت ما زلت تعمل على نفس الخطة. لا تحتاج إلى حفظها ثم فتحها من المكتبة من جديد.
+  الحفظ يتم تلقائيًا، والمكتبة تستخدم فقط للرجوع لاحقًا إلى خطة سابقة أو للانتقال بين المقررات.
+</div>
+<div class="card no-print" style="margin-bottom:14px;border:1px solid #CFEDE9;background:#F5FCFB">
+  <h3 style="margin-top:0">قبل المحاضرة — مشاركة خطة الدرس مع الطلاب</h3>
+  <p class="sub" style="margin-bottom:10px">
+    بعد اعتماد الخطة، اضغط «حفظ PDF عربي عالي الجودة». ستفتح نافذة الطباعة في المتصفح؛ اختر <strong>حفظ بصيغة PDF / Save as PDF</strong>. هذه الطريقة تحافظ على اتصال الحروف العربية وجودتها. ويُنصح أيضًا بحفظ TXT للاسترجاع لاحقًا.
+  </p>
+  <div class="actions" style="margin-bottom:0">
+    <button class="btn" onclick="copyStudentText()">نسخ محتوى خطة الطلاب</button>
+    <button class="btn teal" onclick="printStudent()" title="سيفتح مربع الطباعة؛ اختر حفظ بصيغة PDF">⬇ حفظ PDF عربي عالي الجودة</button>
+    <button class="btn" onclick="exportCurrentPlanTxt()">⬇ حفظ TXT قابل للاسترجاع</button>
+    <button class="btn primary" onclick="printQuality()">حفظ PDF الجودة</button>
+  </div>
+</div>
+
+<details class="card no-print" id="postExecutionEvidence" style="margin-bottom:14px">
+  <summary style="cursor:pointer;font-weight:800;color:var(--navy)">بعد تنفيذ المحاضرة — إضافة أدلة التنفيذ الفعلية <span style="font-weight:400;color:var(--teal)">(اختياري/حسب متطلبات الجودة)</span></summary>
+  <div class="post-exec-help"><strong>لا تحتاج إلى فتح المكتبة إذا كنت تعمل على نفس الخطة الآن.</strong> أضف هنا فقط الأدلة التي أصبحت متاحة بعد التنفيذ، وستُحفظ تلقائيًا في نفس الخطة. استخدم خططي المحفوظة فقط إذا عدت لاحقًا أو أردت الانتقال إلى مقرر آخر.</div>
+  <div id="postExecList"></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+    <button class="btn primary" onclick="saveCurrentPlan()">💾 حفظ الآن</button>
+    <span class="chip">الأدلة تُحفظ تلقائيًا أثناء الكتابة</span>
+    <button class="btn" onclick="openPlanLibrary()">📚 فتح خطة أخرى من المكتبة</button>
+  </div>
+</details>
+
+<article class="output print-doc" id="studentDocument">
+  <div class="outhead">
+    <h2 id="outTitle" style="margin:0 0 5px">خطة المحاضرة للطلاب</h2>
+    <div class="doc-subtitle">نسخة مخصصة للمشاركة على منصة المقرر قبل المحاضرة</div>
+  </div>
+  <div class="outbody" id="studentOutputBody"></div>
+</article>
+
+<article class="output print-doc" style="margin-top:16px" id="qualityDocument">
+  <div class="outhead">
+    <h2 style="margin:0 0 5px">ملف متطلبات الجودة</h2>
+    <div class="doc-subtitle">مواءمة نواتج التعلم مع التدريس والتقويم والتوثيق</div>
+  </div>
+  <div class="outbody" id="qualityOutputBody"></div>
+</article>
+</section>
+</main>
+</div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id), val=id=>($(id)?.value||'').trim();
+function toggleGuide(){
+  const body=$('guideBody'), btn=$('guideToggle');
+  const hidden=body.classList.toggle('hidden');
+  btn.textContent=hidden?'إظهار طريقة الاستخدام':'إخفاء الدليل';
+  localStorage.setItem('lessonPlannerGuideHidden', hidden?'1':'0');
+}
+let loN=0, actN=0;
+
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.navbtn').forEach(x=>x.classList.remove('active'));
+  $(id).classList.add('active');
+  document.querySelector(`.navbtn[data-p="${id}"]`)?.classList.add('active');
+  if(id==='result'){ render(); renderPostExecution(); }
+  if(id==='plan'){ syncDurationUI(); updateTime(); }
+  window.scrollTo({top:70,behavior:'smooth'});
+}
+function codeOptions(sel=''){
+  const codes=['م1','م2','م3','م4','ع1','ع2','ع3','ع4','ق1','ق2','ق3'];
+  return codes.map(x=>`<option ${x===sel?'selected':''}>${x}</option>`).join('');
+}
+function verbOptions(sel=''){
+  const groups={
+    'المعرفة والفهم':[
+      'يعرّف','يشرح','يوضح','يصف','يحدد','يميز','يصنف'
+    ],
+    'التطبيق والمهارات':[
+      'يطبق','يستخدم','ينفذ','يعد','يتقن','يقوم بـ'
+    ],
+    'التحليل والحكم':[
+      'يحلل','يقارن','يقيم','يقيّم','يختار','يقترح'
+    ],
+    'الإنشاء والتطوير':[
+      'يطور','يصمم'
+    ],
+    'القيم والاستقلالية والمسؤولية':[
+      'يلتزم','يبدي','يظهر'
+    ]
+  };
+  return Object.entries(groups).map(([g,arr])=>
+    `<optgroup label="${g}">${arr.map(x=>`<option value="${x}" ${x===sel?'selected':''}>${x}</option>`).join('')}</optgroup>`
+  ).join('');
+}
+const SPEC_ASSESSMENTS=[
+  'الاختبارات الإلكترونية',
+  'الأنشطة والواجبات عبر الإنترنت',
+  'المقابلات الافتراضية',
+  'المشروعات البحثية الإلكترونية',
+  'الاستبانات الإلكترونية',
+  'عروض الطلاب',
+  'كتابة التقارير',
+  'المشاريع الجماعية',
+  'عروض الطلاب المهنية',
+  'الاختبارات الشفهية',
+  'عروض الطلاب التفاعلية',
+  'المشروعات الجماعية الإلكترونية',
+  'المشاركة في الفعاليات العلمية',
+  'الواجبات والتكاليف',
+  'اختبارات قصيرة',
+  'اختبار نصفي',
+  'أبحاث أو مشاريع المجموعات والعروض التفاعلية',
+  'اختبار نهائي',
+  'اختبار تحريري',
+  'شفهي',
+  'عرض تقديمي',
+  'مشروع جماعي',
+  'ورقة عمل'
+];
+
+function assessmentSource(a){
+  return SPEC_ASSESSMENTS.includes(a) ? 'وارد في توصيف المقرر' : 'أداة إضافية مقترحة';
+}
+
+
+function strategyOptions(sel=''){
+  const groups={
+    'بناء المعرفة والفهم':[
+      'محاضرة تفاعلية',
+      'حوار ومناقشة',
+      'عصف ذهني',
+      'خرائط مفاهيم',
+      'تعلم ذاتي موجه',
+      'تدريس استقرائي',
+      'ضرب الأمثلة وطرح الأسئلة'
+    ],
+    'التطبيق والتحليل':[
+      'دراسة حالة',
+      'حل المشكلات',
+      'تعلم قائم على السيناريو',
+      'تعلم قائم على الاستقصاء',
+      'تحليل أمثلة ومواقف',
+      'محاكاة',
+      'عرض عملي / نمذجة'
+    ],
+    'المهارات والعمل الجماعي':[
+      'تعلم تعاوني',
+      'تعلم بالأقران',
+      'عمل جماعي موجه',
+      'تعلم قائم على المشاريع',
+      'تعلم قائم على المهمة',
+      'لعب أدوار',
+      'تطبيق عملي'
+    ]
+  };
+  return Object.entries(groups).map(([g,arr])=>
+    `<optgroup label="${g}">${arr.map(x=>`<option ${x===sel?'selected':''}>${x}</option>`).join('')}</optgroup>`
+  ).join('');
+}
+function assessOptions(sel=''){
+  const groups={
+    'اختبارات وأسئلة':[
+      'اختبار موضوعي قصير',
+      'اختيار من متعدد',
+      'صح / خطأ',
+      'مطابقة',
+      'تصنيف / ترتيب',
+      'سؤال قصير',
+      'سؤال مقالي',
+      'سؤال قصير أو مقالي',
+      'اختبار شفهي',
+      'Quiz إلكتروني'
+    ],
+    'مهام تطبيقية وتحليلية':[
+      'مهمة تطبيقية',
+      'ورقة عمل',
+      'مهمة تطبيقية / ورقة عمل',
+      'دراسة حالة',
+      'حل مشكلة',
+      'سيناريو',
+      'دراسة حالة / حل مشكلة / سيناريو',
+      'تحليل موقف / حادثة',
+      'خريطة مفاهيم'
+    ],
+    'أداء ومهارات':[
+      'أداء عملي',
+      'محاكاة',
+      'أداء عملي / محاكاة',
+      'عرض عملي',
+      'لعب أدوار',
+      'ملاحظة أداء',
+      'قائمة تحقق',
+      'ملاحظة أداء / قائمة تحقق'
+    ],
+    'منتجات ومشروعات':[
+      'عرض شفهي / تقديمي',
+      'تقرير',
+      'مشروع',
+      'بحث',
+      'مشروع / بحث',
+      'ملف إنجاز / Portfolio'
+    ],
+    'تقويم تفاعلي ورقمي':[
+      'استبانة / تصويت إلكتروني',
+      'مناقشة إلكترونية / منتدى',
+      'تقييم أقران',
+      'بطاقة خروج (Exit Ticket)'
+    ]
+  };
+  return Object.entries(groups).map(([g,arr])=>
+    `<optgroup label="${g}">${arr.map(x=>`<option value="${x}" ${x===sel?'selected':''}>${x}</option>`).join('')}</optgroup>`
+  ).join('');
+}
+function correctionOptions(sel=''){
+  const arr=['مفتاح إجابة','نموذج إجابة','Rubric / سلم تقدير','قائمة تحقق'];
+  return arr.map(x=>`<option ${x===sel?'selected':''}>${x}</option>`).join('');
+}
+function activityOptions(sel=''){
+  const arr=[
+    'مناقشة موجهة','سؤال تفاعلي','عصف ذهني','خريطة مفاهيم',
+    'تصنيف أمثلة','تحليل حالة','حل مشكلة','نشاط فردي','نشاط جماعي',
+    'محاكاة','عرض قصير','مهمة تطبيقية'
+  ];
+  return arr.map(x=>`<option ${x===sel?'selected':''}>${x}</option>`).join('');
+}
+function outcomeSuggestion(verb){
+  const map={
+    // المعرفة والفهم
+    'يعرّف':{strategy:'محاضرة تفاعلية',activity:'سؤال تفاعلي',assess:'اختبار موضوعي قصير'},
+    'يشرح':{strategy:'حوار ومناقشة',activity:'مناقشة موجهة',assess:'سؤال قصير أو مقالي'},
+    'يوضح':{strategy:'ضرب الأمثلة وطرح الأسئلة',activity:'مناقشة موجهة',assess:'سؤال قصير أو مقالي'},
+    'يصف':{strategy:'محاضرة تفاعلية',activity:'سؤال تفاعلي',assess:'سؤال قصير أو مقالي'},
+    'يحدد':{strategy:'ضرب الأمثلة وطرح الأسئلة',activity:'تصنيف أمثلة',assess:'اختبار موضوعي قصير'},
+    'يميز':{strategy:'ضرب الأمثلة وطرح الأسئلة',activity:'تصنيف أمثلة',assess:'اختبار موضوعي قصير'},
+    'يصنف':{strategy:'خرائط مفاهيم',activity:'تصنيف أمثلة',assess:'مهمة تطبيقية / ورقة عمل'},
+
+    // التطبيق والمهارات
+    'يطبق':{strategy:'دراسة حالة',activity:'تحليل حالة',assess:'دراسة حالة / حل مشكلة / سيناريو'},
+    'يستخدم':{strategy:'عرض عملي / نمذجة',activity:'مهمة تطبيقية',assess:'أداء عملي / محاكاة'},
+    'ينفذ':{strategy:'محاكاة',activity:'محاكاة',assess:'أداء عملي / محاكاة'},
+    'يعد':{strategy:'تعلم قائم على المهمة',activity:'مهمة تطبيقية',assess:'مهمة تطبيقية / ورقة عمل'},
+    'يتقن':{strategy:'تطبيق عملي',activity:'محاكاة',assess:'أداء عملي / محاكاة'},
+    'يقوم بـ':{strategy:'تعلم قائم على المهمة',activity:'مهمة تطبيقية',assess:'أداء عملي / محاكاة'},
+
+    // التحليل والحكم
+    'يحلل':{strategy:'حل المشكلات',activity:'تحليل حالة',assess:'دراسة حالة / حل مشكلة / سيناريو'},
+    'يقارن':{strategy:'تدريس استقرائي',activity:'خريطة مفاهيم',assess:'مهمة تطبيقية / ورقة عمل'},
+    'يقيم':{strategy:'تعلم قائم على الاستقصاء',activity:'حل مشكلة',assess:'دراسة حالة / حل مشكلة / سيناريو'},
+    'يقيّم':{strategy:'تعلم قائم على الاستقصاء',activity:'حل مشكلة',assess:'دراسة حالة / حل مشكلة / سيناريو'},
+    'يختار':{strategy:'تعلم قائم على السيناريو',activity:'حل مشكلة',assess:'مهمة تطبيقية / ورقة عمل'},
+    'يقترح':{strategy:'حل المشكلات',activity:'حل مشكلة',assess:'دراسة حالة / حل مشكلة / سيناريو'},
+
+    // الإنشاء والتطوير
+    'يطور':{strategy:'تعلم قائم على المشاريع',activity:'نشاط جماعي',assess:'مشروع / بحث'},
+    'يصمم':{strategy:'تعلم قائم على المشاريع',activity:'نشاط جماعي',assess:'مشروع / بحث'},
+
+    // القيم والاستقلالية والمسؤولية
+    'يلتزم':{strategy:'تعلم قائم على السيناريو',activity:'مناقشة موجهة',assess:'ملاحظة أداء / قائمة تحقق'},
+    'يبدي':{strategy:'تعلم ذاتي موجه',activity:'نشاط فردي',assess:'ملاحظة أداء / قائمة تحقق'},
+    'يظهر':{strategy:'تعلم تعاوني',activity:'نشاط جماعي',assess:'ملاحظة أداء / قائمة تحقق'}
+  };
+  return map[verb]||{strategy:'محاضرة تفاعلية',activity:'سؤال تفاعلي',assess:'اختبار موضوعي قصير'};
+}
+function correctionForAssessment(a){
+  const s=String(a||'');
+  if(/اختبار|اختيار|صح|خطأ|مطابقة|تصنيف|ترتيب|Quiz|بطاقة خروج/.test(s)) return 'مفتاح إجابة';
+  if(/سؤال|تقرير/.test(s)) return 'نموذج إجابة';
+  if(/أداء|محاكاة|عرض عملي|لعب أدوار|ملاحظة|قائمة تحقق/.test(s)) return 'قائمة تحقق';
+  return 'Rubric / سلم تقدير';
+}
+function evidenceFor(a){
+  const s=String(a||'');
+  if(/اختبار|اختيار|صح|خطأ|مطابقة|تصنيف|ترتيب|Quiz|بطاقة خروج/.test(s))
+    return 'أداة التقويم + مفتاح الإجابة + تقرير النتائج + تحليل مختصر للنتائج';
+  if(/سؤال/.test(s))
+    return 'السؤال + نموذج الإجابة + عينة من إجابة الطالب + الدرجة/التغذية الراجعة';
+  if(/ورقة عمل|مهمة تطبيقية/.test(s))
+    return 'المهمة/ورقة العمل + مخرج الطالب + أداة التصحيح + التغذية الراجعة';
+  if(/دراسة حالة|حل مشكلة|سيناريو|تحليل موقف|حادثة/.test(s))
+    return 'الحالة/السيناريو + استجابة الطالب + Rubric + تحليل الأداء';
+  if(/عرض شفهي|تقديمي|عرض عملي/.test(s))
+    return 'ملف/رابط العرض + Rubric أو قائمة التحقق + سجل التقييم';
+  if(/مشروع|بحث|ملف إنجاز/.test(s))
+    return 'ملف/رابط المشروع أو البحث + Rubric + سجل الدرجات + التغذية الراجعة';
+  if(/أداء|محاكاة|لعب أدوار/.test(s))
+    return 'سجل الأداء + قائمة التحقق المكتملة + النتيجة + ملاحظة مختصرة';
+  if(/ملاحظة|قائمة تحقق/.test(s))
+    return 'قائمة التحقق المكتملة + سجل الملاحظة + النتيجة';
+  if(/استبانة|تصويت|منتدى|تقييم أقران/.test(s))
+    return 'رابط النشاط + تقرير/لقطة الاستجابات + النتيجة + التغذية الراجعة';
+  if(/تقرير/.test(s))
+    return 'التقرير + نموذج الإجابة أو Rubric + الدرجة + التغذية الراجعة';
+  return 'أداة التقويم + مخرج الطالب + النتيجة + التغذية الراجعة';
+}
+function evidenceSuggestions(a){
+  const primary=evidenceFor(a);
+  const generic=[
+    primary,
+    'رابط أداة التقويم + تقرير الاستجابات + سجل الدرجات + التغذية الراجعة',
+    'السؤال/المهمة + نموذج الإجابة + عينة من مخرج الطالب + النتيجة',
+    'أداة التقويم + أداة التصحيح/الحكم + النتيجة + تحليل مختصر',
+    'لقطة شاشة/تقرير من المنصة + رابط النشاط + سجل الدرجات',
+    'مخرج الطالب + Rubric/قائمة تحقق + الدرجة + التغذية الراجعة'
+  ];
+  return [...new Set(generic)];
+}
+function evidencePresetOptions(a,current=''){
+  return `<option value="">— اختر اقتراحًا لدليل الجودة —</option>`+
+    evidenceSuggestions(a).map(x=>`<option value="${x.replace(/"/g,'&quot;')}" ${x===current?'selected':''}>${x}</option>`).join('');
+}
+function refreshEvidenceOptions(card){
+  const a=card.querySelector('.lassess').value;
+  const sel=card.querySelector('.levidencepreset');
+  if(sel) sel.innerHTML=evidencePresetOptions(a,'');
+}
+function applyEvidencePreset(card){
+  const sel=card.querySelector('.levidencepreset');
+  const v=sel?.value||'';
+  if(v) card.querySelector('.lqualityevidence').value=v;
+  updateAll();
+}
+function addAssessmentLink(card){
+  const ta=card.querySelector('.lassesslinks');
+  if(!ta) return;
+  const current=ta.value.trimEnd();
+  ta.value=current + (current?'\n':'') + 'https://';
+  ta.focus();
+  ta.setSelectionRange(ta.value.length,ta.value.length);
+  updateAll();
+}
+function normalizeAssessmentLinks(card){
+  const ta=card.querySelector('.lassesslinks');
+  if(!ta) return;
+  const parts=ta.value.split(/\s+/).map(x=>x.trim()).filter(Boolean);
+  const urls=[];
+  parts.forEach(x=>{
+    if(!/^https?:\/\//i.test(x) && /^www\./i.test(x)) x='https://'+x;
+    if(/^https?:\/\//i.test(x) && !urls.includes(x)) urls.push(x);
+  });
+  ta.value=urls.join('\n');
+  updateAll();
+}
+function getAssessmentLinks(card){
+  const ta=card.querySelector('.lassesslinks');
+  if(!ta) return [];
+  return ta.value.split(/\n+/).map(x=>x.trim()).filter(x=>/^https?:\/\//i.test(x));
+}
+function escapeHtml(s){
+  return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+function linksHtml(links){
+  if(!links||!links.length) return '—';
+  return `<div style="display:grid;gap:4px">${links.map((u,i)=>`<a href="${escapeHtml(u)}" target="_blank" rel="noopener" style="color:#162A63;text-decoration:underline;overflow-wrap:anywhere">رابط التقويم ${i+1}</a>`).join('')}</div>`;
+}
+function suggestOutcome(card){
+  const verb=card.querySelector('.lverb').value;
+  const s=outcomeSuggestion(verb);
+  card.querySelector('.lstrategy').value=s.strategy;
+  card.querySelector('.lactivity').value=s.activity;
+  card.querySelector('.lassess').value=s.assess;
+  card.querySelector('.lcorrection').value=correctionForAssessment(s.assess);
+  refreshEvidenceOptions(card);
+  card.querySelector('.lqualityevidence').value=evidenceFor(s.assess);
+  updateAll();
+}
+function syncAssessment(card){
+  const a=card.querySelector('.lassess').value;
+  card.querySelector('.lcorrection').value=correctionForAssessment(a);
+  refreshEvidenceOptions(card);
+  card.querySelector('.lqualityevidence').value=evidenceFor(a);
+  updateAll();
+}
+
+function achievementOptions(sel=''){
+  const arr=['يستكمل بعد التنفيذ','تحقق المستهدف','تحقق جزئيًا','لم يتحقق المستهدف'];
+  return arr.map(x=>`<option ${x===sel?'selected':''}>${x}</option>`).join('');
+}
+function addLO(data={}){
+  loN++;
+  const d=document.createElement('div'); d.className='card lo-card';
+  d.innerHTML=`
+  <div class="card-head">
+    <div><span class="badge">ناتج ${loN}</span> <span style="font-size:10px;color:var(--muted)">ابدأ برمز CLO والفعل ثم أكمل صياغة الناتج</span></div>
+    <button class="iconbtn" onclick="this.closest('.lo-card').remove();updateAll()">×</button>
+  </div>
+
+  <div class="grid">
+    <div class="field c3"><label>رمز CLO</label><select class="lcode">${codeOptions(data.code||'')}</select></div>
+    <div class="field c3"><label>الفعل السلوكي</label><select class="lverb">${verbOptions(data.verb||'')}</select></div>
+    <div class="field c6" style="display:flex;align-items:end">
+      <button type="button" class="btn" style="width:100%" onclick="suggestOutcome(this.closest('.lo-card'))">✨ تحديث الاقتراحات تلقائيًا</button>
+    </div>
+
+    <div class="field c12">
+      <label>أكمل صياغة ناتج التعلم</label>
+      <div class="field-help">
+        اكتب فقط بقية الناتج كما ورد في التوصيف، دون تكرار «أن» أو الفعل السلوكي أو كلمة «الطالب».
+        <br><strong>مثال:</strong> إذا كان الناتج «أن يحدد الطالب أنواع المخاطر المهنية»، اختر «يحدد» واكتب هنا: «أنواع المخاطر المهنية».
+      </div>
+      <textarea class="ltopic" style="min-height:82px" placeholder="اكتب بقية ناتج التعلم كما ورد في التوصيف...">${data.topic||''}</textarea>
+    </div>
+
+    <div class="field c6"><label>استراتيجية التدريس <span style="font-weight:400;color:var(--teal)">— مقترحة تلقائيًا</span></label>
+      <select class="lstrategy">${strategyOptions(data.strategy||'')}</select>
+    </div>
+    <div class="field c6"><label>نشاط الطالب <span style="font-weight:400;color:var(--teal)">— مقترح تلقائيًا</span></label>
+      <select class="lactivity">${activityOptions(data.activity||'')}</select>
+    </div>
+
+    <div class="field c6"><label>أداة التقويم <span style="font-weight:400;color:var(--teal)">— اختر الأنسب للناتج</span></label>
+      <select class="lassess">${assessOptions(data.assess||'')}</select>
+    </div>
+    <div class="field c6"><label>المستهدف</label>
+      <select class="ltarget">
+        <option>70%</option><option selected>80%</option><option>85%</option><option>90%</option><option>تحقيق 3 من 4 معايير</option>
+      </select>
+    </div>
+  </div>
+
+  <details class="quality-only" style="margin-top:10px">
+    <summary style="cursor:pointer;font-weight:800;color:var(--navy)">التوثيق وأدلة الناتج — تفتح عند الحاجة فقط</summary>
+    <div class="grid" style="margin-top:12px">
+      <div class="field c4"><label>أداة التصحيح/الحكم</label><select class="lcorrection">${correctionOptions(data.correction||'')}</select></div>
+      <div class="field c8">
+        <label>اقتراحات الدليل المتوقع <span style="font-weight:400;color:var(--teal)">— اختر أو عدّل</span></label>
+        <select class="levidencepreset" onchange="applyEvidencePreset(this.closest('.lo-card'))">${evidencePresetOptions(data.assess||'',data.qualityEvidence||'')}</select>
+      </div>
+      <div class="field c12">
+        <label>الدليل المتوقع قبل التنفيذ <span style="font-weight:400;color:var(--teal)">— قابل للتعديل</span></label>
+        <textarea class="lqualityevidence" style="min-height:62px" placeholder="مثال: أداة التقويم + مفتاح الإجابة + تقرير النتائج + التغذية الراجعة">${data.qualityEvidence||''}</textarea>
+      </div>
+      <div class="field c12">
+        <label>السؤال / المهمة الفعلية <span style="font-weight:400;color:var(--muted)">(اختياري إذا كان التحقق ضمن النشاط نفسه)</span></label>
+        <textarea class="ltask" style="min-height:65px" placeholder="مثال: صنّف الحالات الآتية حسب نوع الخطر.">${data.task||''}</textarea>
+      </div>
+      <div class="field c12">
+        <label>روابط أداة التقويم <span style="font-weight:400;color:var(--teal)">— يمكن إضافة رابط أو عدة روابط</span></label>
+        <textarea class="lassesslinks" style="min-height:72px" placeholder="الصق كل رابط في سطر مستقل&#10;https://example.com/form&#10;https://example.com/activity">${data.assessmentLinks||''}</textarea>
+        <div class="quick" style="margin-top:6px">
+          <button type="button" class="btn" onclick="addAssessmentLink(this.closest('.lo-card'))">＋ إضافة رابط آخر</button>
+          <button type="button" class="btn" onclick="normalizeAssessmentLinks(this.closest('.lo-card'))">↕ ترتيب وتنظيف الروابط</button>
+          <span class="chip">كل رابط في سطر مستقل</span>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <div class="preview lpreview"></div>`;
+
+  $('loList').appendChild(d);
+  d.dataset.actualEvidenceLinks=data.actualEvidenceLinks||'';
+  d.dataset.actualEvidenceNote=data.actualEvidenceNote||'';
+
+  if(data.target) d.querySelector('.ltarget').value=data.target;
+
+  if(!data.strategy && !data.activity && !data.assess){
+    suggestOutcome(d);
+  }else{
+    if(data.strategy) d.querySelector('.lstrategy').value=data.strategy;
+    if(data.activity) d.querySelector('.lactivity').value=data.activity;
+    if(data.assess) d.querySelector('.lassess').value=data.assess;
+    refreshEvidenceOptions(d);
+    if(data.correction) d.querySelector('.lcorrection').value=data.correction;
+    if(data.qualityEvidence) d.querySelector('.lqualityevidence').value=data.qualityEvidence;
+  }
+
+  d.querySelector('.lverb').addEventListener('change',()=>suggestOutcome(d));
+  d.querySelector('.lassess').addEventListener('change',()=>syncAssessment(d));
+  d.querySelectorAll('input,select,textarea').forEach(e=>e.addEventListener('input',updateAll));
+  updateAll();
+}
+function getLOs(){
+  return [...document.querySelectorAll('.lo-card')].map((c,i)=>({
+    n:i+1,
+    code:c.querySelector('.lcode').value,
+    verb:c.querySelector('.lverb').value,
+    topic:c.querySelector('.ltopic').value.trim(),
+    strategy:c.querySelector('.lstrategy').value,
+    activity:c.querySelector('.lactivity').value,
+    assess:c.querySelector('.lassess').value,
+    target:c.querySelector('.ltarget').value,
+    correction:c.querySelector('.lcorrection').value,
+    task:c.querySelector('.ltask').value.trim(),
+    assessmentLinks:(c.querySelector('.lassesslinks')?.value||'').trim(),
+    qualityEvidence:c.querySelector('.lqualityevidence').value.trim(),
+    actualEvidenceLinks:(c.dataset.actualEvidenceLinks||'').trim(),
+    actualEvidenceNote:(c.dataset.actualEvidenceNote||'').trim()
+  }));
+}
+function updatePreviews(){
+  document.querySelectorAll('.lo-card').forEach(c=>{
+    const code=c.querySelector('.lcode').value,verb=c.querySelector('.lverb').value,topic=c.querySelector('.ltopic').value.trim();
+    c.querySelector('.lpreview').innerHTML=`<b>${code}</b> — أن <b>${verb}</b> الطالب ${topic||'<span style="color:#8A94A7">[موضوع الناتج]</span>'}.`;
+  });
+}
+
+function clearActivities(){
+  $('actList').innerHTML='';
+  actN=0;
+}
+function applyPlanTemplate(){
+  clearActivities();
+  const d=Number(val('duration')||180);
+
+  let rows=[];
+  if(d===60){
+    $('breakMode').value='0';
+    rows=[
+      ['شرح/بناء المفهوم','شرح تفاعلي','Teams',25],
+      ['تطبيق','نشاط فردي','Whiteboard',15],
+      ['تقويم تكويني','اختبار قصير','Microsoft Forms',10],
+      ['إغلاق/تقويم ختامي','Exit Ticket','Microsoft Forms',5]
+    ];
+  }else if(d===120){
+    $('breakMode').value='flex';
+    rows=[
+      ['تهيئة','سؤال افتتاحي','Teams',10],
+      ['شرح/بناء المفهوم','شرح تفاعلي','Teams',30],
+      ['تطبيق','نشاط جماعي','Whiteboard',25],
+      ['تقويم تكويني','اختبار قصير','Microsoft Forms',10],
+      ['إغلاق/تقويم ختامي','Exit Ticket','Microsoft Forms',5]
+    ];
+  }else if(d===180){
+    $('breakMode').value='flex';
+    rows=[
+      ['تهيئة','سؤال افتتاحي','Teams',10],
+      ['شرح/بناء المفهوم','شرح تفاعلي','Teams',40],
+      ['تطبيق','نشاط جماعي','Whiteboard',30],
+      ['مناقشة','تحليل حالة','Teams',25],
+      ['تقويم تكويني','اختبار قصير','Microsoft Forms',20],
+      ['إغلاق/تقويم ختامي','Exit Ticket','Microsoft Forms',15]
+    ];
+  }else if(d===240){
+    $('breakMode').value='flex';
+    rows=[
+      ['تهيئة','سؤال افتتاحي','Teams',10],
+      ['شرح/بناء المفهوم','شرح تفاعلي','Teams',60],
+      ['تطبيق','نشاط جماعي','Whiteboard',40],
+      ['مناقشة','تحليل حالة','Teams',30],
+      ['تقويم تكويني','اختبار قصير','Microsoft Forms',30],
+      ['إغلاق/تقويم ختامي','Exit Ticket','Microsoft Forms',30]
+    ];
+  }else{
+    $('breakMode').value='flex';
+    rows=[
+      ['تهيئة','سؤال افتتاحي','Teams',15],
+      ['شرح/بناء المفهوم','شرح تفاعلي','Teams',75],
+      ['تطبيق','نشاط جماعي','Whiteboard',60],
+      ['مناقشة','تحليل حالة','Teams',40],
+      ['تقويم تكويني','اختبار قصير','Microsoft Forms',40],
+      ['إغلاق/تقويم ختامي','Exit Ticket','Microsoft Forms',30]
+    ];
+  }
+  rows.forEach(([stage,type,tool,min])=>addActivity({stage,type,tool,min}));
+  toggleBreakCustom();
+  fixTimeAutomatically();
+  updateAll();
+}
+
+function addActivity(data={}){
+  actN++;
+  const d=document.createElement('div'); d.className='card act-card';
+  d.innerHTML=`
+  <div class="card-head"><span class="badge">مرحلة ${actN}</span><button class="iconbtn" onclick="this.closest('.act-card').remove();updateAll()">×</button></div>
+  <div class="grid">
+    <div class="field c3"><label>المرحلة</label><select class="astage"><option>تهيئة</option><option>شرح/بناء المفهوم</option><option>تطبيق</option><option>مناقشة</option><option>تقويم تكويني</option><option>إغلاق/تقويم ختامي</option></select></div>
+    <div class="field c3"><label>النشاط</label><select class="atype"><option>سؤال افتتاحي</option><option>شرح تفاعلي</option><option>مناقشة موجهة</option><option>عصف ذهني</option><option>خريطة مفاهيم</option><option>تصنيف أمثلة</option><option>تحليل حالة</option><option>حل مشكلة</option><option>نشاط فردي</option><option>نشاط جماعي</option><option>محاكاة</option><option>تصويت</option><option>Exit Ticket</option><option>اختبار قصير</option></select></div>
+    <div class="field c3"><label>المنصة/الأداة</label><select class="atool"><option>Teams</option><option>Moodle / LMS</option><option>Microsoft Forms</option><option>Google Forms</option><option>Whiteboard</option><option>Canva</option><option>PowerPoint</option><option>Word</option><option>Excel</option><option>Padlet</option><option>Mentimeter</option><option>Kahoot</option><option>Quizizz</option><option>Nearpod</option><option>YouTube</option><option>رابط ويب</option><option>ملف PDF</option><option>بدون أداة</option><option>أخرى</option></select></div>
+    <div class="field c3"><label>مدة المرحلة (دقيقة)</label><div class="minute-control"><button type="button" onclick="adjustMinutes(this,-5)">−5</button><input class="amin" type="number" min="0" step="5" value="${Number(data.min||5)}" inputmode="numeric"><button type="button" onclick="adjustMinutes(this,5)">+5</button></div></div>
+  </div>`;
+  $('actList').appendChild(d);
+  if(data.stage) d.querySelector('.astage').value=data.stage;
+  if(data.type) d.querySelector('.atype').value=data.type;
+  if(data.tool){
+    const sel=d.querySelector('.atool');
+    if([...sel.options].some(o=>o.value===data.tool)) sel.value=data.tool;
+    else{sel.value='أخرى';handleOtherToolSelect(sel);const other=d.querySelector('.atool-other');if(other)other.value=data.tool;}
+  }
+  handleOtherToolSelect(d.querySelector('.atool'));
+  d.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',updateAll));
+  updateAll();
+}
+function adjustMinutes(btn,delta){
+  const inp=btn.parentElement.querySelector('.amin');
+  const next=Math.max(0,Number(inp.value||0)+delta);
+  inp.value=next;
+  updateAll();
+}
+function syncDurationUI(){
+  const d=Number(val('duration')||0);
+  if($('durationHelper')) $('durationHelper').textContent=`مدة اللقاء كاملة: ${d} دقيقة (${formatDuration(d)}). الأداة ستوزعها تلقائيًا؛ لا تحتاج إلى جمع الدقائق يدويًا.`;
+}
+function fixTimeAutomatically(){
+  const cards=[...document.querySelectorAll('.act-card')];
+  if(!cards.length){ applyPlanTemplate(); return; }
+  const target=Math.max(0,Number(val('duration')||0)-getBreakMinutes()-getAttendanceMinutes());
+  const used=cards.reduce((s,c)=>s+Number(c.querySelector('.amin').value||0),0);
+  let diff=target-used;
+  if(diff===0){ updateAll(); return; }
+  const preferred=cards.find(c=>c.querySelector('.astage').value==='شرح/بناء المفهوم')
+    || cards.find(c=>c.querySelector('.astage').value==='تطبيق') || cards[cards.length-1];
+  if(diff>0){
+    const inp=preferred.querySelector('.amin');
+    inp.value=Math.max(0,Number(inp.value||0)+diff);
+  }else{
+    let need=-diff;
+    const order=['شرح/بناء المفهوم','تطبيق','مناقشة','تقويم تكويني','تهيئة','إغلاق/تقويم ختامي'];
+    const ordered=[];
+    order.forEach(st=>cards.filter(c=>c.querySelector('.astage').value===st).forEach(c=>ordered.push(c)));
+    cards.forEach(c=>{if(!ordered.includes(c))ordered.push(c)});
+    for(const c of ordered){
+      if(need<=0)break;
+      const inp=c.querySelector('.amin');
+      const current=Number(inp.value||0);
+      const reducible=Math.max(0,current-5);
+      const take=Math.min(reducible,need);
+      inp.value=current-take; need-=take;
+    }
+  }
+  updateAll();
+}
+
+function handleOtherToolSelect(selectEl){
+  if(!selectEl || !selectEl.classList.contains('atool')) return;
+  const card=selectEl.closest('.act-card');
+  if(!card) return;
+  let custom=card.querySelector('.atool-other');
+  if(selectEl.value==='أخرى'){
+    if(!custom){
+      custom=document.createElement('input');
+      custom.type='text';
+      custom.className='atool-other';
+      custom.placeholder='اكتب اسم الأداة / المنصة...';
+      custom.style.marginTop='6px';
+      custom.style.width='100%';
+      custom.addEventListener('input',()=>{autoSaveDraft();updateAll();});
+      selectEl.insertAdjacentElement('afterend',custom);
+    }
+    custom.style.display='block';
+  }else if(custom){
+    custom.style.display='none';
+  }
+}
+function getActivityTool(card){
+  const sel=card?.querySelector('.atool');
+  if(!sel) return '';
+  if(sel.value==='أخرى'){
+    return (card.querySelector('.atool-other')?.value||'أخرى').trim();
+  }
+  return sel.value;
+}
+
+function getActs(){
+  return [...document.querySelectorAll('.act-card')].map((c,i)=>({n:i+1,stage:c.querySelector('.astage').value,type:c.querySelector('.atype').value,tool:getActivityTool(c),min:Number(c.querySelector('.amin').value)}));
+}
+function getAttendanceMinutes(){
+  const raw=Number(val('attendanceMinutes'));
+  return Number.isFinite(raw)?Math.min(60,Math.max(0,raw)):15;
+}
+function adjustAttendanceMinutes(delta){
+  const inp=$('attendanceMinutes');if(!inp)return;
+  inp.value=Math.min(60,Math.max(0,getAttendanceMinutes()+delta));
+  updateAll();
+}
+function updateAttendancePositionOptions(){
+  const sel=$('attendancePosition');if(!sel)return;
+  const prev=sel.value||'end';
+  const acts=getActs();
+  const opts=[{v:'end',t:'في نهاية اللقاء'},{v:'start',t:'في بداية اللقاء'}];
+  acts.slice(0,-1).forEach((a,i)=>opts.push({v:'after:'+String(i+1),t:`بعد المرحلة ${i+1}: ${a.stage}`}));
+  const sig=opts.map(o=>o.v+'|'+o.t).join(';;');
+  if(sel.dataset.optionsSig===sig)return;
+  sel.innerHTML=opts.map(o=>`<option value="${escapeHtml(o.v)}">${escapeHtml(o.t)}</option>`).join('');
+  sel.value=opts.some(o=>o.v===prev)?prev:'end';
+  sel.dataset.optionsSig=sig;
+}
+function getExecutionRows(acts=getActs()){
+  const arr=[...acts];
+  const attendance={stage:'تحضير الطلاب (الحضور والغياب)',type:'تسجيل الحضور والغياب',tool:'سجل الحضور والغياب',min:getAttendanceMinutes(),kind:'attendance'};
+  if(attendance.min<=0)return arr;
+  const pos=val('attendancePosition')||'end';
+  if(pos==='start')arr.unshift(attendance);
+  else if(pos.startsWith('after:')){
+    const n=Number(pos.split(':')[1]);
+    arr.splice(Math.max(0,Math.min(arr.length,n)),0,attendance);
+  }else arr.push(attendance);
+  return arr;
+}
+
+function getBreakMinutes(){
+  return val('breakMode') && val('breakMode')!=='0' ? 30 : 0;
+}
+function getBreakLabel(){
+  const m=val('breakMode');
+  const labels={
+    '0':'بدون استراحة',
+    'single':'استراحة 30 دقيقة',
+    '3x10':'استراحة 30 دقيقة',
+    '2x15':'استراحة 30 دقيقة',
+    'flex':'استراحة 30 دقيقة'
+  };
+  if(m==='flex' && val('breakCustom')) return `${labels[m]} — ${val('breakCustom')}`;
+  return labels[m]||'بدون استراحة';
+}
+function toggleBreakCustom(){
+  const w=$('breakCustomWrap');
+  if(w) w.classList.add('hidden');
+}
+function updateTime(){
+  const activityMins=getActs().reduce((s,a)=>s+a.min,0);
+  const breakMins=getBreakMinutes();
+  const attendanceMins=getAttendanceMinutes();
+  const d=Number(val('duration')||0);
+  const target=Math.max(0,d-breakMins-attendanceMins);
+  const remaining=d-(activityMins+breakMins+attendanceMins);
+  const total=activityMins+breakMins+attendanceMins;
+  if($('mins')) $('mins').textContent=total;
+  if($('diff')) $('diff').textContent=(remaining>0?'+':'')+remaining;
+  if($('durationMinsDisplay')) $('durationMinsDisplay').textContent=d;
+  if($('breakMinsDisplay')) $('breakMinsDisplay').textContent=breakMins;
+  if($('attendanceMinsDisplay')) $('attendanceMinsDisplay').textContent=attendanceMins;
+  if($('targetMinsDisplay')) $('targetMinsDisplay').textContent=target;
+  if($('usedMinsDisplay')) $('usedMinsDisplay').textContent=activityMins;
+  if($('remainingMinsDisplay')) $('remainingMinsDisplay').textContent=Math.abs(remaining);
+  const box=$('remainingBox'), status=$('timeStatus');
+  if(box) box.className='time-box remaining '+(remaining===0?'ok':remaining>0?'warn':'bad');
+  if(status){
+    status.className='time-status '+(remaining===0?'ok':remaining>0?'warn':'bad');
+    if(remaining===0) status.textContent='✓ الوقت مضبوط. التدريس والأنشطة + الحضور والغياب + الاستراحة = مدة اللقاء.';
+    else if(remaining>0) status.textContent=`باقي ${remaining} دقيقة لم تُوزع بعد. اضغط «ضبط المتبقي تلقائيًا» أو أضفها لأي مرحلة باستخدام +5.`;
+    else status.textContent=`الخطة زائدة ${Math.abs(remaining)} دقيقة. اضغط «ضبط المتبقي تلقائيًا» لتصحيحها.`;
+  }
+  syncDurationUI();
+}
+function qualityEvaluation(){
+  const los=getLOs(), acts=getActs(), duration=Number(val('duration')||0);
+  const activityMins=acts.reduce((s,a)=>s+a.min,0);
+  const breakMins=getBreakMinutes();
+  const attendanceMins=getAttendanceMinutes();
+  const totalMins=activityMins+breakMins+attendanceMins;
+
+  const checks=[
+    {key:'basic',title:'اكتمال بيانات الدرس',ok:!!(val('course')&&val('week')&&val('title')&&val('instructor')),
+     note:'اسم المقرر والأسبوع وعنوان الدرس وعضو هيئة التدريس مكتملة.'},
+    {key:'lo',title:'ربط نواتج التعلم بالتوصيف',ok:los.length>0 && los.every(x=>x.code&&x.topic),
+     note:'كل ناتج يحتوي رمزًا من التوصيف وموضوعًا محددًا.'},
+    {key:'measurable',title:'قابلية قياس نواتج التعلم',ok:los.length>0 && los.every(x=>x.verb&&x.assess),
+     note:'كل ناتج يحتوي فعلًا قابلًا للقياس وأداة تقييم مرتبطة.'},
+    {key:'strategy',title:'مواءمة استراتيجية التدريس',ok:los.length>0 && los.every(x=>x.strategy),
+     note:'تم تحديد استراتيجية تدريس لكل ناتج.'},
+    {key:'activity',title:'وجود نشاط تعلم مرتبط',ok:los.length>0 && los.every(x=>x.activity),
+     note:'كل ناتج مرتبط بنشاط يتيح للطالب ممارسة السلوك المطلوب.'},
+    {key:'correction',title:'وجود أداة تصحيح أو حكم',ok:los.length>0 && los.every(x=>x.correction),
+     note:'تم تحديد مفتاح إجابة أو نموذج إجابة أو سلم/معيار مناسب.'},
+    {key:'qualityEvidence',title:'تحديد دليل توثيق لكل ناتج',ok:los.length>0 && los.every(x=>x.qualityEvidence),
+     note:'تم تحديد دليل توثيق لكل ناتج، ويُقترح تلقائيًا قبل التنفيذ ويمكن تعديله.'},
+    {key:'target',title:'وجود مستهدف أداء',ok:los.length>0 && los.every(x=>x.target),
+     note:'تم تحديد مستهدف لكل ناتج.'},
+    {key:'time',title:'اتساق الزمن مع مدة الدرس',ok:acts.length>=3 && totalMins===duration,
+     note:`إجمالي الزمن المخطط ${totalMins} دقيقة، ويشمل ${attendanceMins} دقيقة لتسجيل الحضور والغياب و${breakMins} دقيقة استراحة عند اختيارها، مقابل مدة الدرس ${formatDuration(duration)}.`},
+    {key:'evidence',title:'تحديد التوثيق وحفظ الأدلة',ok:!!val('store'),
+     note:'تم تحديد مكان حفظ الدليل.'},
+    {key:'feedback',title:'تحديد آلية التغذية الراجعة',ok:!!val('feedback'),
+     note:'تم تحديد آلية التغذية الراجعة.'},
+    {key:'resource',title:'تحديد مصدر التعلم',ok:!!val('resource'),
+     note:'تم تحديد مصدر تعلم رئيسي.'}
+  ];
+
+  const score=Math.round(checks.filter(x=>x.ok).length/checks.length*100);
+  let status='غير جاهز';
+  let recommendation='تحتاج الخطة إلى استكمال العناصر الأساسية قبل الاعتماد.';
+  if(score>=90){
+    status='جاهز قبل التنفيذ';
+    recommendation='الخطة مستوفية لعناصر التخطيط والمواءمة قبل التنفيذ.';
+  }else if(score>=70){
+    status='استكمال بسيط';
+    recommendation='الخطة جيدة وتحتاج إلى استكمال العناصر غير المستوفاة قبل التنفيذ.';
+  }
+  return {checks,score,status,recommendation,totalMins,activityMins,breakMins,duration};
+}
+function score(){
+  const q=qualityEvaluation(), p=q.score;
+  $('scoreText').textContent=p+'%';$('scoreBar').style.width=p+'%';
+  if($('autoQualityScore')) $('autoQualityScore').textContent=p+'%';
+  if($('autoQualityStatus')) $('autoQualityStatus').textContent=q.status;
+  return p;
+}
+let currentPlanId=localStorage.getItem('lessonPlannerCurrentPlanId')||'';
+let isLoadingPlan=false;
+const PLAN_LIBRARY_KEY='lessonPlannerPlansV1';
+
+
+// =========================
+// استيراد خطة PDF - وضع دقيق + وضع مراجعة
+// =========================
+let pendingImportedPlanState=null;
+let pendingPdfReview=null;
+
+function openPdfImportModal(){
+  pendingImportedPlanState=null;
+  pendingPdfReview=null;
+  if($('planPdfImportFile')) $('planPdfImportFile').value='';
+  setPdfImportStatus('اختر ملف PDF لبدء القراءة.',0);
+  $('pdfImportSummary')?.classList.add('hidden');
+  $('pdfImportReview')?.classList.add('hidden');
+  $('pdfImportModal')?.classList.add('open');
+}
+function closePdfImportModal(){$('pdfImportModal')?.classList.remove('open')}
+function setPdfImportStatus(msg,pct){
+  if($('pdfImportStatus')) $('pdfImportStatus').textContent=msg;
+  if($('pdfImportProgress')) $('pdfImportProgress').style.width=`${Math.max(0,Math.min(100,Number(pct||0)))}%`;
+}
+function showPdfImportSummary(htmlText,type='ok'){
+  const box=$('pdfImportSummary'); if(!box)return;
+  box.className=type==='warn'?'pdf-import-warn':'pdf-import-summary';
+  box.innerHTML=htmlText;
+}
+function escapeRegExp(s){return String(s).replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
+function utf8ToB64(str){
+  const bytes=new TextEncoder().encode(str); let bin='';
+  for(let i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+function b64ToUtf8(b64){
+  const bin=atob(b64); const bytes=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+function encodedPlanState(){
+  try{
+    return utf8ToB64(JSON.stringify({version:2,state:captureState()}));
+  }catch(e){return ''}
+}
+function embeddedStateFromMetadata(meta){
+  try{
+    const info=meta?.info||{};
+    const vals=Object.values(info).filter(v=>typeof v==='string').join(' ');
+    let m=vals.match(/LPSTATEv2:([A-Za-z0-9+/=]+)/);
+    if(m){
+      const obj=JSON.parse(b64ToUtf8(m[1]));
+      const s=obj?.state||obj;
+      if(s && s.fields)return {state:s,version:2};
+    }
+    m=vals.match(/LPSTATEv1:([A-Za-z0-9+/=]+)/);
+    if(m){
+      const s=JSON.parse(b64ToUtf8(m[1]));
+      if(s && s.fields)return {state:s,version:1};
+    }
+    return null;
+  }catch(e){
+    console.warn('Embedded state decode failed',e);
+    return null;
+  }
+}
+function normalizeArabicDigits(s){
+  const map={'٠':'0','١':'1','٢':'2','٣':'3','٤':'4','٥':'5','٦':'6','٧':'7','٨':'8','٩':'9','۰':'0','۱':'1','۲':'2','۳':'3','۴':'4','۵':'5','۶':'6','۷':'7','۸':'8','۹':'9'};
+  return String(s||'').replace(/[٠-٩۰-۹]/g,d=>map[d]||d);
+}
+function cleanImportedText(s){
+  return normalizeArabicDigits(String(s||''))
+    .replace(/[\u200e\u200f\u202a-\u202e]/g,'')
+    .replace(/[ـ]+/g,'')
+    .replace(/[ \t]+/g,' ')
+    .replace(/\n[ \t]+/g,'\n')
+    .replace(/\n{3,}/g,'\n\n')
+    .trim();
+}
+function stripAtNextLabel(v){
+  const labels=['البرنامج / الدبلوم','البرنامج','اسم البرنامج','المقرر','اسم المقرر','الأسبوع','الأسبوع الدراسي','مدة الدرس','مدة اللقاء','عنوان الدرس','عنوان المحاضرة','عضو هيئة التدريس','عضو/عضوة هيئة التدريس','مصدر التعلم','نواتج تعلم','خطة تنفيذ','التعلم والتغذية','معلومات مساندة'];
+  let out=String(v||'').trim();
+  let cut=out.length;
+  labels.forEach(l=>{const i=out.indexOf(l);if(i>0&&i<cut)cut=i});
+  return out.slice(0,cut).replace(/[|•]+$/,'').trim();
+}
+function importedLines(text){
+  return cleanImportedText(text).split(/\n+/).map(x=>x.trim()).filter(Boolean);
+}
+const IMPORT_FIELD_LABELS=[
+  'البرنامج / الدبلوم','البرنامج','اسم البرنامج',
+  'المقرر','اسم المقرر',
+  'الأسبوع','الأسبوع الدراسي',
+  'عنوان الدرس','عنوان المحاضرة',
+  'مدة الدرس','مدة اللقاء','مدة اللقاء كاملة',
+  'عضو/عضوة هيئة التدريس','عضو هيئة التدريس','عضوة هيئة التدريس','مُعد الخطة','معد الخطة',
+  'مصدر التعلم الرئيسي','مصدر التعلم'
+];
+function looksLikeImportLabel(s){
+  const t=String(s||'').trim();
+  return IMPORT_FIELD_LABELS.some(l=>t===l || t.startsWith(l+' ') || t.endsWith(' '+l) || t.includes(l+' :') || t.includes(l+':'));
+}
+function cleanFieldCandidate(v){
+  let s=String(v||'').replace(/^[\s:：|•\-–—]+|[\s:：|•\-–—]+$/g,'').trim();
+  if(!s || s==='—' || looksLikeImportLabel(s))return '';
+  return s;
+}
+function captureLabelValue(text,labels,max=180){
+  const lines=importedLines(text);
+  for(const label of labels){
+    for(let i=0;i<lines.length;i++){
+      const line=lines[i];
+      const pos=line.indexOf(label);
+      if(pos<0)continue;
+      const after=cleanFieldCandidate(line.slice(pos+label.length));
+      const before=cleanFieldCandidate(line.slice(0,pos));
+      const candidates=[after,before].filter(x=>x && x.length<=max);
+      if(candidates.length){
+        const best=candidates.find(x=>!IMPORT_FIELD_LABELS.some(l=>x.includes(l)))||candidates[0];
+        if(best)return stripAtNextLabel(best).slice(0,max).trim();
+      }
+      for(const j of [i+1,i-1,i+2,i-2]){
+        if(j<0||j>=lines.length)continue;
+        const c=cleanFieldCandidate(lines[j]);
+        if(c && c.length<=max && !looksLikeImportLabel(c)) return stripAtNextLabel(c).slice(0,max).trim();
+      }
+    }
+  }
+  return '';
+}
+function filenameFallback(name){
+  const base=String(name||'').replace(/\.pdf$/i,'');
+  const clean=base.replace(/_?(?:خطة_المحاضرة_للطلاب|متطلبات_الجودة)$/,'');
+  const m=clean.match(/^(.+?)_(الأسبوع_[^_]+)_(.+)$/);
+  if(!m)return {};
+  return {course:m[1].replace(/_/g,' '),week:m[2].replace(/_/g,' '),title:m[3].replace(/_/g,' ')};
+}
+function nearestDuration(n){
+  const allowed=[60,120,180,240,300]; n=Number(n||0);
+  if(!n)return '180';
+  return String(allowed.reduce((a,b)=>Math.abs(b-n)<Math.abs(a-n)?b:a,allowed[0]));
+}
+function parseDurationFromText(text){
+  const around=text.match(/(?:مدة الدرس|مدة اللقاء(?: كاملة)?|إجمالي الزمن المخطط)[\s:：-]{0,18}(\d{1,3})\s*دقيقة/i);
+  if(around)return nearestDuration(around[1]);
+  const any=text.match(/(\d{2,3})\s*دقيقة/i);
+  return any?nearestDuration(any[1]):'180';
+}
+function optionTextsFrom(generator){
+  try{const s=document.createElement('select');s.innerHTML=generator();return [...s.options].map(o=>o.textContent.trim()).filter(Boolean)}catch(e){return []}
+}
+function findKnownIn(text,arr){
+  const source=String(text||'');
+  return arr.find(x=>x && source.includes(x))||'';
+}
+function codeForVerb(verb,counters){
+  const values=['يلتزم','يبدي','يظهر'];
+  const knowledge=['يعرّف','يشرح','يوضح','يصف','يحدد','يميز','يصنف'];
+  if(values.includes(verb)){counters.q++;return 'ق'+Math.min(counters.q,3)}
+  if(knowledge.includes(verb)){counters.a++;return 'ع'+Math.min(counters.a,4)}
+  counters.m++;return 'م'+Math.min(counters.m,4);
+}
+function trimOutcomeTopic(topic){
+  let t=String(topic||'').replace(/^[\s:：-]+/,'').replace(/[.،؛;]+$/,'').trim();
+  const stops=['نشاط الطالب','أداة التقويم','المستهدف','استراتيجية التدريس','الفعل السلوكي','تكملة صياغة الناتج','خطة تنفيذ المحاضرة','خطة تنفيذ الجلسة','معلومات مساندة'];
+  let cut=t.length;
+  stops.forEach(x=>{const i=t.indexOf(x);if(i>3&&i<cut)cut=i});
+  return t.slice(0,cut).trim().slice(0,320);
+}
+function parseOutcomesFromText(text){
+  const t=cleanImportedText(text);
+  const flat=t.replace(/\n+/g,' ').replace(/\s{2,}/g,' ');
+  const verbs=optionTextsFrom(verbOptions).sort((a,b)=>b.length-a.length);
+  const verbPat=verbs.map(escapeRegExp).join('|');
+  const counters={a:0,m:0,q:0}, found=[];
+  if(!verbPat)return found;
+
+  const patterns=[
+    new RegExp('(?:(ع[1-4]|م[1-4]|ق[1-3])\\s*[-–—:]?\\s*)?أن\\s+('+verbPat+')\\s+(?:الطالب|الطلاب)\\s+(.{3,340}?)(?=\\s+(?:ع[1-4]|م[1-4]|ق[1-3]|أن\\s+(?:'+verbPat+')\\s+(?:الطالب|الطلاب)|نشاط الطالب|أداة التقويم|المستهدف|خطة تنفيذ|معلومات مساندة|$))','g'),
+    new RegExp('أن\\s+('+verbPat+')\\s+(?:الطالب|الطلاب)\\s+(.{3,240}?)(?=\\s+أن\\s+(?:'+verbPat+')\\s+(?:الطالب|الطلاب)|\\s+خطة تنفيذ|\\s+معلومات مساندة|$)','g')
+  ];
+
+  let m;
+  for(const re of patterns){
+    while((m=re.exec(flat)) && found.length<15){
+      const hasCode=m.length===4;
+      const code=hasCode?(m[1]||''):''; 
+      const verb=hasCode?m[2]:m[1];
+      const raw=hasCode?m[3]:m[2];
+      const topic=trimOutcomeTopic(raw);
+      if(!topic || topic.length<2)continue;
+      if(found.some(x=>x.verb===verb && x.topic===topic))continue;
+      const sug=outcomeSuggestion(verb);
+      found.push({
+        code:code||codeForVerb(verb,counters),verb,topic,
+        strategy:sug.strategy,activity:sug.activity,assess:sug.assess,target:'80%',
+        correction:correctionForAssessment(sug.assess),qualityEvidence:evidenceFor(sug.assess),
+        task:'',assessmentLinks:'',actualEvidenceLinks:'',actualEvidenceNote:''
+      });
+    }
+    if(found.length)break;
+  }
+  return found;
+}
+function parseActivitiesFromText(text){
+  const t=cleanImportedText(text);
+  let section=t;
+  for(const s of ['خطة تنفيذ المحاضرة','خطة تنفيذ الجلسة','خطة التنفيذ','الخطة الزمنية']){
+    const i=t.indexOf(s); if(i>=0){section=t.slice(i);break;}
+  }
+  let stop=section.length;
+  ['روابط أدوات التقويم','معلومات مساندة للطلاب','التعلم والتغذية الراجعة','هذه الخطة مخصصة','ملف متطلبات الجودة','مواءمة نواتج التعلم'].forEach(l=>{
+    const i=section.indexOf(l); if(i>0&&i<stop)stop=i;
+  });
+  section=section.slice(0,stop);
+
+  const stageAliases=[
+    ['تحضير الطلاب (الحضور والغياب)',['تحضير الطلاب (الحضور والغياب)','تحضير الطلاب / حضور وغياب','تحضير الطلاب','الحضور والغياب','بداية اللقاء']],
+    ['تهيئة',['تهيئة']],
+    ['شرح/بناء المفهوم',['شرح/بناء المفهوم','شرح وبناء المفهوم','شرح المفهوم']],
+    ['تطبيق',['تطبيق']],
+    ['مناقشة',['مناقشة']],
+    ['تقويم تكويني',['تقويم تكويني']],
+    ['إغلاق/تقويم ختامي',['إغلاق/تقويم ختامي','إغلاق وتقويم ختامي','تقويم ختامي']],
+    ['استراحة',['استراحة']]
+  ];
+  const knownActivities=optionTextsFrom(activityOptions).concat(['تسجيل الحضور والغياب وبدء اللقاء','تهيئة الطلاب والمنصة']);
+  const tools=['Teams','Moodle / LMS','Microsoft Forms','Google Forms','Whiteboard','Canva','PowerPoint','Word','Excel','Padlet','Mentimeter','Kahoot','Quizizz','Nearpod','YouTube','رابط ويب','ملف PDF','بدون أداة','أخرى'];
+  const hits=[];
+  stageAliases.forEach(([canonical,aliases])=>aliases.forEach(alias=>{
+    let from=0; while(true){const i=section.indexOf(alias,from);if(i<0)break;hits.push({i,stage:canonical,alias});from=i+alias.length}
+  }));
+  hits.sort((a,b)=>a.i-b.i);
+  const unique=[];hits.forEach(h=>{if(!unique.some(x=>Math.abs(x.i-h.i)<3&&x.stage===h.stage))unique.push(h)});
+  const acts=[];let hasBreak=false;
+
+  unique.forEach((h,idx)=>{
+    const next=unique.slice(idx+1).find(x=>x.i>h.i+2);
+    const seg=section.slice(h.i,next?next.i:section.length);
+    if(h.stage==='استراحة'){hasBreak=true;return}
+    const mins=[...normalizeArabicDigits(seg).matchAll(/(\d{1,3})\s*دقيقة/g)].map(x=>Number(x[1])).filter(x=>x>0&&x<=300);
+    const min=mins[0]||5;
+    let type=findKnownIn(seg,knownActivities);
+    if(type==='تهيئة الطلاب والمنصة')type='تسجيل الحضور والغياب وبدء اللقاء';
+    type=type||({
+      'تحضير الطلاب (الحضور والغياب)':'تسجيل الحضور والغياب وبدء اللقاء',
+      'تهيئة':'سؤال افتتاحي','شرح/بناء المفهوم':'شرح تفاعلي','تطبيق':'نشاط فردي',
+      'مناقشة':'مناقشة موجهة','تقويم تكويني':'اختبار قصير','إغلاق/تقويم ختامي':'Exit Ticket'
+    }[h.stage]||'شرح تفاعلي');
+    const tool=findKnownIn(seg,tools)||(h.stage==='تحضير الطلاب (الحضور والغياب)'?'Teams':'بدون أداة');
+    if(!acts.some(a=>a.stage===h.stage&&a.min===min&&a.type===type))acts.push({stage:h.stage,type,tool,min});
+  });
+
+  // OCR fallback: find any line with minutes and inspect nearby text for stage/activity.
+  if(!acts.length){
+    const lines=importedLines(section);
+    lines.forEach((line,i)=>{
+      const mm=normalizeArabicDigits(line).match(/(\d{1,3})\s*دقيقة/); if(!mm)return;
+      const context=lines.slice(Math.max(0,i-3),Math.min(lines.length,i+4)).join(' ');
+      let stage='';
+      for(const [canonical,aliases] of stageAliases){
+        if(aliases.some(a=>context.includes(a))){stage=canonical;break;}
+      }
+      if(!stage || stage==='استراحة'){if(stage==='استراحة')hasBreak=true;return;}
+      let type=findKnownIn(context,knownActivities)||'شرح تفاعلي';
+      let tool=findKnownIn(context,tools)||'بدون أداة';
+      acts.push({stage,type,tool,min:Number(mm[1])});
+    });
+  }
+  return {acts:acts.slice(0,12),hasBreak};
+}
+function parseGenericPlanText(text,fileName){
+  const t=cleanImportedText(text), fb=filenameFallback(fileName);
+  let title=captureLabelValue(t,['عنوان الدرس','عنوان المحاضرة'],200)||fb.title||'';
+  const course=captureLabelValue(t,['اسم المقرر','المقرر'],160)||fb.course||'';
+  const week=captureLabelValue(t,['الأسبوع الدراسي','الأسبوع'],90)||fb.week||'';
+  const program=captureLabelValue(t,['البرنامج / الدبلوم','اسم البرنامج','البرنامج'],180);
+  const instructor=captureLabelValue(t,['عضو/عضوة هيئة التدريس','عضو هيئة التدريس','عضوة هيئة التدريس','مُعد الخطة','معد الخطة'],180);
+  const duration=parseDurationFromText(t);
+  const resource=t.includes('الكتاب')?'الكتاب':'شرائح المحاضرة';
+  const los=parseOutcomesFromText(t), p=parseActivitiesFromText(t);
+  return {state:{fields:{program,course,week,duration,title,instructor,prior:'',resource,store:'LMS / نظام إدارة التعلم',feedback:'فورية أثناء الدرس',breakMode:p.hasBreak?'flex':(Number(duration)>60?'flex':'0'),breakCustom:''},los,acts:p.acts},text:t};
+}
+async function loadScriptOnce(src,globalName){
+  if(globalName&&window[globalName])return;
+  await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.appendChild(s)});
+}
+async function extractPdfTextCandidates(pdf){
+  const visual=[],raw=[]; const max=Math.min(pdf.numPages,12);
+  for(let p=1;p<=max;p++){
+    setPdfImportStatus(`قراءة الصفحة ${p} من ${max}...`,10+Math.round((p/max)*30));
+    const page=await pdf.getPage(p), tc=await page.getTextContent();
+    const items=(tc.items||[]).filter(x=>String(x.str||'').trim());
+    raw.push(items.map(x=>String(x.str||'').trim()).join('\n'));
+    const lines=[];
+    items.forEach(it=>{
+      const y=Math.round((it.transform?.[5]||0)/3)*3;
+      let line=lines.find(l=>Math.abs(l.y-y)<=3);
+      if(!line){line={y,items:[]};lines.push(line)}
+      line.items.push({x:it.transform?.[4]||0,s:String(it.str||'')});
+    });
+    lines.sort((a,b)=>b.y-a.y);
+    visual.push(lines.map(l=>{
+      const arabic=l.items.some(z=>/[\u0600-\u06FF]/.test(z.s));
+      l.items.sort((a,b)=>arabic?b.x-a.x:a.x-b.x);
+      return l.items.map(z=>z.s).join(' ');
+    }).join('\n'));
+  }
+  return [...new Set([cleanImportedText(visual.join('\n')),cleanImportedText(raw.join('\n'))].filter(Boolean))];
+}
+async function ocrPdfPages(pdf){
+  setPdfImportStatus('الملف يبدو مصورًا. جاري تشغيل القراءة الضوئية العربية...',43);
+  await loadScriptOnce('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js','Tesseract');
+  const max=Math.min(pdf.numPages,6); let worker=null; const parts=[];
+  try{
+    worker=await Tesseract.createWorker('ara+eng',1,{logger:m=>{
+      if(m&&typeof m.progress==='number')setPdfImportStatus(`قراءة ضوئية: ${m.status||'جاري التحليل'}...`,48+Math.round(m.progress*42));
+    }});
+    for(let p=1;p<=max;p++){
+      const page=await pdf.getPage(p), viewport=page.getViewport({scale:2});
+      const canvas=document.createElement('canvas');canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);
+      await page.render({canvasContext:canvas.getContext('2d',{willReadFrequently:true}),viewport}).promise;
+      const result=await worker.recognize(canvas);parts.push(result?.data?.text||'');
+    }
+  }finally{if(worker)await worker.terminate()}
+  return cleanImportedText(parts.join('\n'));
+}
+function importedStateScore(parsed){
+  const s=parsed?.state||{},f=s.fields||{};let score=0;
+  ['program','course','week','title','instructor'].forEach(k=>{if(f[k])score+=3});
+  score+=(s.los||[]).length*7+(s.acts||[]).length*4;
+  return score;
+}
+function chooseBestImportedParse(variants,fileName){
+  const results=(variants||[]).map(t=>parseGenericPlanText(t,fileName));
+  results.sort((a,b)=>importedStateScore(b)-importedStateScore(a));
+  return results[0]||parseGenericPlanText('',fileName);
+}
+
+// ----- Review UI for old/external PDFs -----
+function reviewStageOptions(sel=''){
+  const arr=['تحضير الطلاب (الحضور والغياب)','تهيئة','شرح/بناء المفهوم','تطبيق','مناقشة','تقويم تكويني','إغلاق/تقويم ختامي'];
+  return arr.map(x=>`<option value="${escapeHtml(x)}" ${x===sel?'selected':''}>${escapeHtml(x)}</option>`).join('');
+}
+function reviewToolOptions(sel=''){
+  const arr=['Teams','Moodle / LMS','Microsoft Forms','Google Forms','Whiteboard','Canva','PowerPoint','Word','Excel','Padlet','Mentimeter','Kahoot','Quizizz','Nearpod','YouTube','رابط ويب','ملف PDF','بدون أداة','أخرى'];
+  return arr.map(x=>`<option value="${escapeHtml(x)}" ${x===sel?'selected':''}>${escapeHtml(x)}</option>`).join('');
+}
+function showPdfReview(state,fileName,method='parsed'){
+  pendingPdfReview={state:JSON.parse(JSON.stringify(state)),fileName,method};
+  const f=state.fields||{};
+  ['program','course','week','title','instructor'].forEach(k=>{const el=$('review_'+k);if(el)el.value=f[k]||''});
+  if($('review_duration'))$('review_duration').value=f.duration||'180';
+  if($('review_resource'))$('review_resource').value=f.resource||'شرائح المحاضرة';
+  renderReviewOutcomes();
+  renderReviewActivities();
+  $('pdfImportMethodBadge').textContent='PDF قديم / خارجي - يحتاج مراجعة';
+  $('pdfImportReview').classList.remove('hidden');
+  showPdfImportSummary(`<strong>تم استخراج مسودة فقط.</strong><br>وجدت ${(state.los||[]).length} ناتج تعلم و${(state.acts||[]).length} مرحلة زمنية. راجعها أدناه قبل النقل.`, 'warn');
+  setPdfImportStatus('تم الاستخراج. راجع البيانات ثم اعتمدها.',100);
+}
+function renderReviewOutcomes(){
+  const box=$('reviewOutcomeList'); if(!box)return;
+  const arr=pendingPdfReview?.state?.los||[];
+  if(!arr.length){box.innerHTML='<div class="review-empty">لم أتعرف على نواتج تعلم بشكل موثوق. أضفها هنا يدويًا أو استخدم PDF جديد صادر من الأداة للاستعادة الدقيقة.</div>';return}
+  box.innerHTML=arr.map((x,i)=>`
+    <div class="review-card">
+      <div class="review-card-grid">
+        <div><label>رمز CLO</label><input class="rlo-code" data-i="${i}" value="${escapeHtml(x.code||'')}"></div>
+        <div><label>الفعل</label><select class="rlo-verb" data-i="${i}">${verbOptions(x.verb||'')}</select></div>
+        <div><label>تكملة صياغة الناتج</label><input class="rlo-topic" data-i="${i}" value="${escapeHtml(x.topic||'')}"></div>
+        <button type="button" class="review-remove" onclick="removeReviewOutcome(${i})">×</button>
+      </div>
+    </div>`).join('');
+}
+function addReviewOutcome(){
+  if(!pendingPdfReview)return;
+  pendingPdfReview.state.los=pendingPdfReview.state.los||[];
+  pendingPdfReview.state.los.push({code:'',verb:'يشرح',topic:'',strategy:'محاضرة تفاعلية',activity:'سؤال تفاعلي',assess:'اختبار موضوعي قصير',target:'80%',correction:'مفتاح إجابة',qualityEvidence:'أداة التقويم + مفتاح الإجابة + تقرير النتائج'});
+  renderReviewOutcomes();
+}
+function removeReviewOutcome(i){pendingPdfReview.state.los.splice(i,1);renderReviewOutcomes()}
+function renderReviewActivities(){
+  const box=$('reviewActivityList'); if(!box)return;
+  const arr=pendingPdfReview?.state?.acts||[];
+  if(!arr.length){box.innerHTML='<div class="review-empty">لم أتعرف على الخطة الزمنية بشكل موثوق. أضف المراحل هنا أو استورد PDF جديدًا صادرًا من الأداة.</div>';return}
+  box.innerHTML=arr.map((x,i)=>`
+    <div class="review-card">
+      <div class="review-card-grid activity">
+        <div><label>المرحلة</label><select class="ract-stage" data-i="${i}">${reviewStageOptions(x.stage||'تهيئة')}</select></div>
+        <div><label>النشاط</label><select class="ract-type" data-i="${i}">${activityOptions(x.type||'شرح تفاعلي')}</select></div>
+        <div><label>الأداة</label><select class="ract-tool" data-i="${i}">${reviewToolOptions(x.tool||'بدون أداة')}</select></div>
+        <div><label>الدقائق</label><input class="ract-min" data-i="${i}" type="number" min="0" step="5" value="${Number(x.min)||5}"></div>
+        <button type="button" class="review-remove" onclick="removeReviewActivity(${i})">×</button>
+      </div>
+    </div>`).join('');
+}
+function addReviewActivity(){
+  if(!pendingPdfReview)return;
+  pendingPdfReview.state.acts=pendingPdfReview.state.acts||[];
+  pendingPdfReview.state.acts.push({stage:'تطبيق',type:'نشاط فردي',tool:'بدون أداة',min:10});
+  renderReviewActivities();
+}
+function removeReviewActivity(i){pendingPdfReview.state.acts.splice(i,1);renderReviewActivities()}
+function syncReviewInputsToState(){
+  if(!pendingPdfReview)return null;
+  const s=pendingPdfReview.state, f=s.fields||{};
+  ['program','course','week','title','instructor'].forEach(k=>{f[k]=($('review_'+k)?.value||'').trim()});
+  f.duration=$('review_duration')?.value||'180';
+  f.resource=$('review_resource')?.value||'شرائح المحاضرة';
+  document.querySelectorAll('.rlo-code').forEach(el=>{const i=Number(el.dataset.i);if(s.los[i])s.los[i].code=el.value.trim()});
+  document.querySelectorAll('.rlo-verb').forEach(el=>{const i=Number(el.dataset.i);if(s.los[i]){s.los[i].verb=el.value;const sug=outcomeSuggestion(el.value);s.los[i].strategy=sug.strategy;s.los[i].activity=sug.activity;s.los[i].assess=sug.assess;s.los[i].correction=correctionForAssessment(sug.assess);s.los[i].qualityEvidence=evidenceFor(sug.assess)}});
+  document.querySelectorAll('.rlo-topic').forEach(el=>{const i=Number(el.dataset.i);if(s.los[i])s.los[i].topic=el.value.trim()});
+  document.querySelectorAll('.ract-stage').forEach(el=>{const i=Number(el.dataset.i);if(s.acts[i])s.acts[i].stage=el.value});
+  document.querySelectorAll('.ract-type').forEach(el=>{const i=Number(el.dataset.i);if(s.acts[i])s.acts[i].type=el.value});
+  document.querySelectorAll('.ract-tool').forEach(el=>{const i=Number(el.dataset.i);if(s.acts[i])s.acts[i].tool=el.value});
+  document.querySelectorAll('.ract-min').forEach(el=>{const i=Number(el.dataset.i);if(s.acts[i])s.acts[i].min=Math.max(0,Number(el.value)||0)});
+  return s;
+}
+function cancelPdfReview(){
+  pendingPdfReview=null;
+  $('pdfImportReview')?.classList.add('hidden');
+  setPdfImportStatus('تم إلغاء المراجعة. لم يتم تغيير الخطة الحالية.',0);
+}
+function applyReviewedPdfImport(){
+  const state=syncReviewInputsToState();
+  if(!state)return;
+  applyImportedStateExact(state,pendingPdfReview?.fileName||'PDF','reviewed');
+}
+function applyImportedStateExact(state,fileName,method='embedded'){
+  if(!state||!state.fields)throw new Error('لم يتم العثور على بيانات خطة صالحة.');
+  currentPlanId='';localStorage.removeItem('lessonPlannerCurrentPlanId');
+  applyState(state);updateAll();
+  if(hasPlanIdentity())ensureCurrentPlan();
+  pendingImportedPlanState=state;
+  const f=state.fields||{};
+  const exact=method==='embedded';
+  showPdfImportSummary(exact
+    ? `<strong>تمت الاستعادة الدقيقة من PDF.</strong><br>تمت استعادة البيانات الأساسية و${(state.los||[]).length} ناتج تعلم و${(state.acts||[]).length} مرحلة تنفيذ دون OCR.`
+    : `<strong>تم نقل البيانات التي راجعتها إلى الخطة.</strong><br>نواتج التعلم: ${(state.los||[]).length} - مراحل التنفيذ: ${(state.acts||[]).length}`);
+  setPdfImportStatus('تم نقل الخطة بنجاح.',100);
+  $('pdfImportReview')?.classList.add('hidden');
+  setTimeout(()=>{closePdfImportModal();showPanel('basic');window.scrollTo({top:0,behavior:'smooth'});},250);
+}
+async function importPlanPdf(input){
+  const file=input?.files?.[0];if(!file)return;
+  try{
+    setPdfImportStatus('فتح ملف PDF...',5);
+    $('pdfImportReview')?.classList.add('hidden');
+    if(!window.pdfjsLib)throw new Error('تعذر تحميل قارئ PDF. تحقق من الاتصال بالإنترنت ثم أعد المحاولة.');
+    pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    const pdf=await pdfjsLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
+
+    setPdfImportStatus('التحقق من وجود بيانات خطة مدمجة...',8);
+    try{
+      const meta=await pdf.getMetadata();
+      const embedded=embeddedStateFromMetadata(meta);
+      if(embedded){
+        applyImportedStateExact(embedded.state,file.name,'embedded');
+        return;
+      }
+    }catch(e){console.warn('Metadata read failed',e)}
+
+    // Old/external PDF: extraction is only a draft for review.
+    let variants=await extractPdfTextCandidates(pdf);
+    let readable=variants.reduce((m,t)=>Math.max(m,t.replace(/\s/g,'').length),0);
+    if(readable<120){
+      try{
+        const ocr=await ocrPdfPages(pdf);
+        if(ocr)variants.push(ocr);
+      }catch(e){console.warn('OCR failed',e)}
+    }
+    variants=[...new Set(variants.filter(Boolean))];
+    readable=variants.reduce((m,t)=>Math.max(m,t.replace(/\s/g,'').length),0);
+    if(readable<30)throw new Error('لم أتمكن من قراءة محتوى الملف. استخدم PDF أوضح أو ملفًا صادرًا من النسخة الجديدة من الأداة.');
+
+    setPdfImportStatus('إنشاء مسودة للمراجعة...',92);
+    const parsed=chooseBestImportedParse(variants,file.name);
+    showPdfReview(parsed.state,file.name,'parsed');
+  }catch(err){
+    console.error(err);
+    setPdfImportStatus('تعذر استيراد الخطة.',0);
+    showPdfImportSummary(`<strong>لم يكتمل الاستيراد:</strong> ${escapeHtml(err?.message||String(err))}`,'warn');
+  }
+}
+
+function captureState(){
+  const s={fields:{},los:getLOs(),acts:getActs()};
+  ['program','course','week','duration','title','instructor','prior','resource','store','feedback','breakMode','breakCustom','attendanceMinutes','attendancePosition'].forEach(id=>{if($(id))s.fields[id]=val(id)});
+  return s;
+}
+
+// =========================
+// تصدير / استيراد TXT للخطة - استرجاع دقيق بلا OCR
+// =========================
+const TXT_PLAN_MAGIC='NOOR_LESSON_PLAN_TXT_V1';
+
+function safeFilePart(s){
+  return String(s||'').trim().replace(/[\\/:*?"<>|]+/g,'-').replace(/\s+/g,'_').slice(0,80)||'خطة';
+}
+function txtHumanSummary(state){
+  const f=state?.fields||{};
+  const los=state?.los||[], acts=state?.acts||[];
+  const lines=[
+    TXT_PLAN_MAGIC,
+    '',
+    '[معلومات الخطة]',
+    `البرنامج / الدبلوم: ${f.program||''}`,
+    `المقرر: ${f.course||''}`,
+    `الأسبوع: ${f.week||''}`,
+    `عنوان المحاضرة: ${f.title||''}`,
+    `مدة اللقاء: ${f.duration||''} دقيقة`,
+    `عضو/عضوة هيئة التدريس: ${f.instructor||''}`,
+    `مصدر التعلم: ${f.resource||''}`,
+    `مدة تسجيل الحضور والغياب: ${f.attendanceMinutes??'15'} دقيقة`,
+    `موضع تسجيل الحضور والغياب: ${f.attendancePosition||'end'}`,
+    '',
+    '[نواتج التعلم]'
+  ];
+  los.forEach((x,i)=>{
+    lines.push(`${i+1}. ${x.code||''} | أن ${x.verb||''} الطالب ${x.topic||''}`);
+    lines.push(`   استراتيجية التدريس: ${x.strategy||''}`);
+    lines.push(`   نشاط الطالب: ${x.activity||''}`);
+    lines.push(`   أداة التقويم: ${x.assess||''}`);
+    lines.push(`   المستهدف: ${x.target||''}`);
+    lines.push(`   أداة التصحيح: ${x.correction||''}`);
+    if(x.task) lines.push(`   المهمة: ${x.task}`);
+    if(x.assessmentLinks) lines.push(`   روابط التقويم: ${String(x.assessmentLinks).replace(/\n/g,' | ')}`);
+    if(x.qualityEvidence) lines.push(`   دليل الجودة المتوقع: ${x.qualityEvidence}`);
+    if(x.actualEvidenceLinks) lines.push(`   روابط أدلة التنفيذ: ${String(x.actualEvidenceLinks).replace(/\n/g,' | ')}`);
+    if(x.actualEvidenceNote) lines.push(`   ملاحظة دليل التنفيذ: ${x.actualEvidenceNote}`);
+  });
+  lines.push('', '[الخطة الزمنية]');
+  const rows=getExecutionRows(acts);
+  rows.forEach((a,i)=>lines.push(`${i+1}. ${a.stage||''} | ${a.type||''} | ${a.tool||''} | ${Number(a.min)||0} دقيقة`));
+  lines.push('', '=== BEGIN EXACT DATA ===');
+  lines.push(JSON.stringify({format:TXT_PLAN_MAGIC,version:1,exportedAt:new Date().toISOString(),state},null,2));
+  lines.push('=== END EXACT DATA ===');
+  return lines.join('\n');
+}
+function exportCurrentPlanTxt(){
+  const state=captureState();
+  if(!state.fields?.course || !state.fields?.week || !state.fields?.title){
+    alert('قبل تصدير TXT أدخل اسم المقرر والأسبوع وعنوان المحاضرة.');
+    return;
+  }
+  ensureCurrentPlan();
+  const text='\uFEFF'+txtHumanSummary(state);
+  const blob=new Blob([text],{type:'text/plain;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`${safeFilePart(state.fields.title)} - ${safeFilePart(state.fields.week)} - ${safeFilePart(state.fields.course)}.txt`;
+  document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},700);
+}
+function parseExactTxtPlan(text){
+  const raw=String(text||'').replace(/^\uFEFF/,'');
+  const begin='=== BEGIN EXACT DATA ===';
+  const end='=== END EXACT DATA ===';
+  const bi=raw.indexOf(begin), ei=raw.indexOf(end);
+  if(bi<0||ei<0||ei<=bi) return null;
+  const jsonText=raw.slice(bi+begin.length,ei).trim();
+  const obj=JSON.parse(jsonText);
+  const state=obj?.state||obj;
+  if(!state || !state.fields || !Array.isArray(state.los) || !Array.isArray(state.acts)) throw new Error('ملف TXT لا يحتوي على بنية خطة صالحة.');
+  return state;
+}
+function importCurrentPlanTxt(input){
+  const file=input?.files?.[0]; if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const state=parseExactTxtPlan(String(reader.result||''));
+      if(!state) throw new Error('هذا الملف ليس TXT صادرًا من الأداة أو فقد قسم البيانات الدقيقة.');
+      if((val('course')||val('title')||getLOs().length) && !confirm('سيتم فتح خطة TXT المستوردة بدل المسودة الحالية. هل تريد المتابعة؟')) return;
+      currentPlanId='';
+      localStorage.removeItem('lessonPlannerCurrentPlanId');
+      applyState(JSON.parse(JSON.stringify(state)));
+      updateAll();
+      if(hasPlanIdentity())ensureCurrentPlan();
+      showPanel('basic');
+      const banner=$('pdfImportAppliedBanner');
+      const text=$('pdfImportAppliedText');
+      if(banner&&text){
+        text.textContent=` تم استيراد TXT بدقة: ${(state.los||[]).length} ناتج تعلم و${(state.acts||[]).length} مرحلة زمنية. أكمل على الخطة مباشرة.`;
+        banner.classList.remove('hidden');
+      }
+      alert('تم استيراد خطة TXT وتعبئة الخانات مباشرة.');
+    }catch(e){
+      console.error(e);
+      alert('تعذر استيراد TXT. '+(e?.message||'تأكد من اختيار ملف TXT صادر من هذه الأداة.'));
+    }finally{
+      input.value='';
+    }
+  };
+  reader.onerror=()=>{alert('تعذر قراءة ملف TXT.');input.value='';};
+  reader.readAsText(file,'utf-8');
+}
+
+function readPlans(){
+  try{return JSON.parse(localStorage.getItem(PLAN_LIBRARY_KEY)||'[]')||[]}catch(e){return []}
+}
+function writePlans(plans){localStorage.setItem(PLAN_LIBRARY_KEY,JSON.stringify(plans))}
+function planLabel(state){
+  const f=state?.fields||{};
+  return [f.course||'مقرر غير مسمى',f.week||'بدون أسبوع',f.title||'بدون عنوان'].join(' — ');
+}
+function refreshCurrentPlanStatus(){
+  const el=$('currentPlanStatus'); if(!el)return;
+  if(!currentPlanId){el.textContent='مسودة محفوظة تلقائيًا';return;}
+  const p=readPlans().find(x=>x.id===currentPlanId);
+  el.textContent=p?'الخطة الحالية محفوظة تلقائيًا':'مسودة محفوظة تلقائيًا';
+}
+function autoSaveDraft(){
+  try{
+    const s=captureState();
+    localStorage.setItem('lessonPlannerAutoDraft',JSON.stringify(s));
+    if(isLoadingPlan) return;
+    if(currentPlanId){
+      const plans=readPlans(); const i=plans.findIndex(x=>x.id===currentPlanId);
+      if(i>=0){plans[i].state=s;plans[i].updatedAt=new Date().toISOString();writePlans(plans);refreshCurrentPlanStatus();}
+    }
+  }catch(e){console.warn(e)}
+}
+
+function hasPlanIdentity(){
+  return !!(val('course') && val('week') && val('title'));
+}
+function ensureCurrentPlan(){
+  // Create or update the active library record silently once the plan has its identity.
+  // This removes the need to save then reopen the same plan.
+  if(!hasPlanIdentity()) return false;
+  return saveCurrentPlan(true);
+}
+function saveCurrentPlan(silent=false){
+  const state=captureState();
+  if(!state.fields.course || !state.fields.week || !state.fields.title){
+    if(!silent) alert('للحفظ في خططي المحفوظة، أدخل اسم المقرر والأسبوع وعنوان الدرس أولًا.');
+    return false;
+  }
+  const plans=readPlans();
+  const now=new Date().toISOString();
+  let i=plans.findIndex(x=>x.id===currentPlanId);
+  if(i<0){
+    currentPlanId='plan_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+    plans.unshift({id:currentPlanId,createdAt:now,updatedAt:now,state});
+  }else{
+    plans[i].state=state;plans[i].updatedAt=now;
+  }
+  writePlans(plans);
+  localStorage.setItem('lessonPlannerCurrentPlanId',currentPlanId);
+  refreshCurrentPlanStatus();
+  renderPlanLibrary();
+  if(!silent) alert('تم حفظ الخطة، وهي ما زالت مفتوحة أمامك. لا تحتاج إلى استرجاعها من المكتبة الآن؛ أكمل العمل عليها مباشرة.');
+  return true;
+}
+function applyState(s){
+  if(!s)return;
+  isLoadingPlan=true;
+  const fields=s.fields||{};
+  Object.entries(fields).forEach(([k,v])=>{if($(k))$(k).value=v});
+  const sourceActs=Array.isArray(s.acts)?s.acts:[];
+  const oldIndex=sourceActs.findIndex(a=>/تحضير الطلاب|الحضور والغياب/.test(String(a?.stage||''))||/تسجيل الحضور والغياب/.test(String(a?.type||'')));
+  const teachingActs=sourceActs.filter((a,i)=>i!==oldIndex);
+  const oldAttendance=oldIndex>=0?sourceActs[oldIndex]:null;
+  if($('attendanceMinutes'))$('attendanceMinutes').value=fields.attendanceMinutes??oldAttendance?.min??15;
+  $('loList').innerHTML='';$('actList').innerHTML='';loN=0;actN=0;
+  (s.los||[]).forEach(addLO);teachingActs.forEach(addActivity);
+  let pos=fields.attendancePosition;
+  if(!pos&&oldIndex>=0){
+    pos=oldIndex===0?'start':oldIndex===teachingActs.length?'end':'after:'+String(oldIndex);
+  }
+  updateAttendancePositionOptions();
+  if($('attendancePosition'))$('attendancePosition').value=pos||'end';
+  toggleBreakCustom();syncDurationUI();updatePreviews();updateTime();score();
+  isLoadingPlan=false;
+  renderPostExecution();
+}
+function openPlanLibrary(){renderPlanLibrary();$('planLibraryModal')?.classList.add('open')}
+function closePlanLibrary(){$('planLibraryModal')?.classList.remove('open')}
+function renderPlanLibrary(){
+  const host=$('planLibraryList'); if(!host)return;
+  const q=($('librarySearch')?.value||'').trim().toLowerCase();
+  const plans=readPlans().sort((a,b)=>String(b.updatedAt).localeCompare(String(a.updatedAt))).filter(p=>{
+    const f=p.state?.fields||{}; return !q || [f.course,f.week,f.title,f.program].join(' ').toLowerCase().includes(q);
+  });
+  if(!plans.length){host.innerHTML='<div class="note" style="grid-column:1/-1">لا توجد خطط محفوظة مطابقة. ابدأ خطة جديدة ثم اضغط «حفظ الخطة».</div>';return;}
+  host.innerHTML=plans.map(p=>{const f=p.state?.fields||{};const active=p.id===currentPlanId;return `
+    <div class="plan-card" style="${active?'border-color:#17B7B1;box-shadow:0 0 0 2px rgba(23,183,177,.08)':''}">
+      <h4>${escapeHtml(f.course||'مقرر غير مسمى')}</h4>
+      <div class="meta-line"><b>${escapeHtml(f.week||'بدون أسبوع')}</b> — ${escapeHtml(f.title||'بدون عنوان')}</div>
+      <div class="meta-line">آخر حفظ: ${new Date(p.updatedAt).toLocaleString('ar-SA')}</div>
+      <div class="card-actions">
+        <button class="btn teal" onclick="loadPlanById('${p.id}')">فتح</button>
+        <button class="btn" onclick="duplicatePlanById('${p.id}')">نسخ للأسبوع التالي</button>
+        <button class="btn" onclick="deletePlanById('${p.id}')">حذف</button>
+      </div>
+    </div>`}).join('');
+}
+function loadPlanById(id){
+  const p=readPlans().find(x=>x.id===id); if(!p)return;
+  currentPlanId=id;localStorage.setItem('lessonPlannerCurrentPlanId',id);applyState(p.state);refreshCurrentPlanStatus();closePlanLibrary();showPanel('basic');
+}
+function newPlan(){
+  if((val('course')||val('title')) && !confirm('بدء خطة جديدة؟ تأكد من حفظ الخطة الحالية أولًا إذا كنت تحتاجها.'))return;
+  currentPlanId='';localStorage.removeItem('lessonPlannerCurrentPlanId');
+  const blank={fields:{duration:'180',resource:'شرائح المحاضرة',prior:'',breakMode:'flex'},los:[],acts:[]};
+  ['program','course','week','title','instructor','prior','resource','store','feedback','breakCustom'].forEach(id=>{if($(id))$(id).value=''});
+  if($('duration'))$('duration').value='180';if($('breakMode'))$('breakMode').value='flex';
+  if($('attendanceMinutes'))$('attendanceMinutes').value='15';
+  if($('attendancePosition'))$('attendancePosition').value='end';
+  $('loList').innerHTML='';$('actList').innerHTML='';loN=0;actN=0;updateAll();refreshCurrentPlanStatus();closePlanLibrary();showPanel('basic');
+}
+function duplicatePlanById(id){
+  const source=readPlans().find(x=>x.id===id); if(!source)return;
+  const copy=JSON.parse(JSON.stringify(source.state));
+  const newWeek=prompt('اكتب الأسبوع للخطة الجديدة:',copy.fields?.week||''); if(newWeek===null)return;
+  const newTitle=prompt('عنوان الدرس للخطة الجديدة:',copy.fields?.title||''); if(newTitle===null)return;
+  copy.fields=copy.fields||{};copy.fields.week=newWeek.trim();copy.fields.title=newTitle.trim();
+  // أدلة التنفيذ الفعلية لا تُنسخ للأسبوع الجديد
+  (copy.los||[]).forEach(x=>{x.actualEvidenceLinks='';x.actualEvidenceNote=''});
+  const plans=readPlans();const now=new Date().toISOString();
+  const nid='plan_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+  plans.unshift({id:nid,createdAt:now,updatedAt:now,state:copy});writePlans(plans);
+  currentPlanId=nid;localStorage.setItem('lessonPlannerCurrentPlanId',nid);applyState(copy);refreshCurrentPlanStatus();closePlanLibrary();showPanel('basic');
+}
+function duplicateCurrentPlan(){
+  if(!currentPlanId){if(!saveCurrentPlan(true))return;}
+  duplicatePlanById(currentPlanId);
+}
+function deletePlanById(id){
+  const plans=readPlans();const p=plans.find(x=>x.id===id);if(!p)return;
+  if(!confirm('حذف هذه الخطة من هذا المتصفح؟\n'+planLabel(p.state)))return;
+  writePlans(plans.filter(x=>x.id!==id));
+  if(currentPlanId===id){currentPlanId='';localStorage.removeItem('lessonPlannerCurrentPlanId');refreshCurrentPlanStatus();}
+  renderPlanLibrary();
+}
+function exportAllPlans(){
+  const payload={version:1,exportedAt:new Date().toISOString(),plans:readPlans()};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='نسخة_احتياطية_خطط_الدروس.json';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);
+}
+function importPlansFromFile(input){
+  const file=input.files?.[0];if(!file)return;
+  const r=new FileReader();r.onload=()=>{try{
+    const obj=JSON.parse(r.result);const incoming=Array.isArray(obj)?obj:(obj.plans||[]);if(!Array.isArray(incoming))throw new Error('bad');
+    const current=readPlans();const map=new Map(current.map(x=>[x.id,x]));incoming.forEach(x=>{if(x&&x.id&&x.state)map.set(x.id,x)});writePlans([...map.values()]);renderPlanLibrary();alert('تم استيراد الخطط بنجاح.');
+  }catch(e){alert('تعذر قراءة النسخة الاحتياطية. تأكد من اختيار ملف JSON صادر من الأداة.')}finally{input.value=''}};r.readAsText(file,'utf-8');
+}
+function setPostExecutionEvidence(index,key,value){
+  const card=document.querySelectorAll('.lo-card')[index];if(!card)return;
+  if(key==='links')card.dataset.actualEvidenceLinks=value;else card.dataset.actualEvidenceNote=value;
+  autoSaveDraft();
+  ensureCurrentPlan();
+}
+function renderPostExecution(){
+  const host=$('postExecList');if(!host)return;
+  const los=getLOs();
+  if(!los.length){host.innerHTML='<div class="note">أضف نواتج التعلم أولًا، ثم ستظهر هنا خانات أدلة التنفيذ لكل ناتج.</div>';return;}
+  host.innerHTML=los.map((x,i)=>`<div class="post-exec-card">
+    <h4>${escapeHtml(x.code)} — أن ${escapeHtml(x.verb)} الطالب ${escapeHtml(x.topic||'')}</h4>
+    <div class="grid">
+      <div class="field c12"><label>روابط الأدلة الفعلية / عينات أعمال الطلاب <span style="font-weight:400;color:var(--muted)">(اختياري حسب متطلبات الجودة)</span></label><textarea style="min-height:72px;direction:ltr;text-align:left" placeholder="كل رابط في سطر مستقل\nhttps://..." oninput="setPostExecutionEvidence(${i},'links',this.value)">${escapeHtml(x.actualEvidenceLinks||'')}</textarea></div>
+      <div class="field c12"><label>ملاحظة مختصرة عن الدليل <span style="font-weight:400;color:var(--muted)">(اختياري)</span></label><textarea style="min-height:58px" placeholder="مثال: رابط يتضمن عينة من أعمال الطلاب وتقرير نتائج التقويم." oninput="setPostExecutionEvidence(${i},'note',this.value)">${escapeHtml(x.actualEvidenceNote||'')}</textarea></div>
+    </div>
+  </div>`).join('');
+}
+function restoreWorkspaceOnStartup(){
+  const plans=readPlans();
+  if(currentPlanId){const p=plans.find(x=>x.id===currentPlanId);if(p){applyState(p.state);refreshCurrentPlanStatus();return}}
+  try{const draft=JSON.parse(localStorage.getItem('lessonPlannerAutoDraft')||'null');if(draft)applyState(draft)}catch(e){}
+  refreshCurrentPlanStatus();
+}
+
+function initOtherToolInputs(){
+  document.querySelectorAll('.atool').forEach(handleOtherToolSelect);
+}
+
+function updateAll(){updateAttendancePositionOptions();updatePreviews();updateTime();score();autoSaveDraft()}
+function formatDuration(mins){
+  const n=Number(mins||0);
+  if(n===60) return 'ساعة واحدة';
+  if(n===120) return 'ساعتان';
+  if(n===180) return '3 ساعات';
+  if(n===240) return '4 ساعات';
+  if(n===300) return '5 ساعات';
+  return n+' دقيقة';
+}
+
+function meta(){
+  return `<div class="pdf-meta">
+    <div class="pdf-meta-item"><b>البرنامج / الدبلوم</b><span>${escapeHtml(val('program')||'—')}</span></div>
+    <div class="pdf-meta-item"><b>المقرر</b><span>${escapeHtml(val('course')||'—')}</span></div>
+    <div class="pdf-meta-item"><b>الأسبوع</b><span>${escapeHtml(val('week')||'—')}</span></div>
+    <div class="pdf-meta-item"><b>مدة اللقاء</b><span>${escapeHtml(formatDuration(val('duration')))}</span></div>
+    <div class="pdf-meta-item"><b>عضو/عضوة هيئة التدريس</b><span>${escapeHtml(val('instructor')||'—')}</span></div>
+    <div class="pdf-meta-item"><b>عنوان المحاضرة</b><span>${escapeHtml(val('title')||'—')}</span></div>
+  </div>`;
+}
+function render(){
+  const los=getLOs(), acts=getActs(), q=qualityEvaluation();
+  const today=new Date().toLocaleDateString('ar-SA');
+  const missing=q.checks.filter(x=>!x.ok);
+  $('outTitle').textContent=(val('title')?`خطة المحاضرة: ${val('title')}`:'خطة المحاضرة للطلاب');
+
+  const studentOutcomeCards = los.length ? los.map(x=>`
+    <div class="student-outcome-card">
+      <div class="student-outcome-main">
+        <span class="student-outcome-code">${escapeHtml(x.code||'—')}</span>
+        <div class="student-outcome-text">أن ${escapeHtml(x.verb||'')} الطالب ${escapeHtml(x.topic||'—')}.</div>
+      </div>
+      <div class="student-outcome-details">
+        <div class="student-outcome-detail"><b>نشاط الطالب</b><span>${escapeHtml(x.activity||'—')}</span></div>
+        <div class="student-outcome-detail"><b>أداة التقويم</b><span>${escapeHtml(x.assess||'—')}</span></div>
+        <div class="student-outcome-detail"><b>المستهدف</b><span>${escapeHtml(x.target||'—')}</span></div>
+      </div>
+    </div>`).join('') :
+    `<div class="pdf-note">لم تتم إضافة نواتج تعلم بعد.</div>`;
+
+  const timelineRows=getExecutionRows(acts);
+  const sessionSteps = timelineRows.length ? timelineRows.map(a=>`
+    <div class="session-step ${a.kind==='attendance'?'session-attendance':''}">
+      <div class="session-time">${Number(a.min)||0}<br>دقيقة</div>
+      <div><b>المرحلة</b><span>${escapeHtml(a.stage||'—')}</span></div>
+      <div><b>النشاط</b><span>${escapeHtml(a.type||'—')}</span></div>
+      <div><b>الأداة / المنصة</b><span>${escapeHtml(a.tool||'—')}</span></div>
+    </div>`).join('') : `<div class="pdf-note">لم تتم إضافة مراحل تنفيذ بعد.</div>`;
+
+  const breakCard=getBreakMinutes()
+    ? `<div class="session-step session-break">
+         <div class="session-time">30<br>دقيقة</div>
+         <div><b>المرحلة</b><span>استراحة</span></div>
+         <div><b>الوصف</b><span>${escapeHtml(getBreakLabel())}</span></div>
+         <div><b>الأداة / المنصة</b><span>—</span></div>
+       </div>`
+    : '';
+
+  const studentAssessmentLinks=los.filter(x=>x.assessmentLinks).map(x=>{
+    const links=String(x.assessmentLinks||'').split(/\n+/).map(s=>s.trim()).filter(s=>/^https?:\/\//i.test(s));
+    return links.length?`<div class="assessment-link-card"><strong>${escapeHtml(x.code||'—')} - ${escapeHtml(x.assess||'أداة تقويم')}</strong>${linksHtml(links)}</div>`:'';
+  }).filter(Boolean).join('');
+
+  $('studentOutputBody').innerHTML=`
+    <div class="pdf-section avoid-break">${meta()}</div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">نواتج تعلم المحاضرة</div>
+      <div class="student-outcome-list">${studentOutcomeCards}</div>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">خطة تنفيذ المحاضرة</div>
+      <div class="session-timeline">${sessionSteps}${breakCard}</div>
+    </div>
+
+    ${studentAssessmentLinks?`
+      <div class="pdf-section">
+        <div class="pdf-section-title">روابط أدوات التقويم والأنشطة</div>
+        ${studentAssessmentLinks}
+      </div>`:''}
+
+    <div class="pdf-section avoid-break">
+      <div class="pdf-section-title">معلومات مساندة للطلاب</div>
+      <div class="pdf-meta">
+        <div class="pdf-meta-item"><b>مصدر التعلم الرئيسي</b><span>${escapeHtml(val('resource')||'—')}</span></div>
+        <div class="pdf-meta-item"><b>الأسبوع</b><span>${escapeHtml(val('week')||'—')}</span></div>
+        <div class="pdf-meta-item"><b>إجمالي الزمن المخطط</b><span>${q.totalMins} دقيقة</span></div>
+      </div>
+    </div>
+
+    <div class="pdf-note pdf-section">
+      هذه الخطة مخصصة للمشاركة مع الطلاب قبل المحاضرة، وتوضح نواتج التعلم وخطوات تنفيذ اللقاء والأنشطة وأساليب التقويم المرتبطة به.
+    </div>
+
+    <div class="rights">
+      <strong>إعداد وتصميم: نور أحمد الزهراني</strong><br>
+      <span>جميع حقوق تصميم وإعداد الأداة محفوظة.</span>
+    </div>`;
+
+  const alignmentCards=los.length ? los.map(x=>`
+    <div class="q-outcome-card">
+      <div class="q-outcome-head">
+        <strong>${escapeHtml(x.code||'—')} - أن ${escapeHtml(x.verb||'')} الطالب ${escapeHtml(x.topic||'—')}</strong>
+        <span class="badge">${escapeHtml(x.target||'—')}</span>
+      </div>
+      <div class="q-mini-grid">
+        <div class="q-item w6"><b>تكملة صياغة الناتج</b><span>${escapeHtml(x.topic||'—')}</span></div>
+        <div class="q-item"><b>الفعل السلوكي</b><span>${escapeHtml(x.verb||'—')}</span></div>
+        <div class="q-item"><b>المستهدف</b><span>${escapeHtml(x.target||'—')}</span></div>
+        <div class="q-item w6"><b>استراتيجية التدريس</b><span>${escapeHtml(x.strategy||'—')}</span></div>
+        <div class="q-item w6"><b>نشاط الطالب</b><span>${escapeHtml(x.activity||'—')}</span></div>
+        <div class="q-item w6"><b>أداة التقويم</b><span>${escapeHtml(x.assess||'—')}</span></div>
+        <div class="q-item w6"><b>أداة التصحيح / الحكم</b><span>${escapeHtml(x.correction||'—')}</span></div>
+        <div class="q-item w12"><b>السؤال / المهمة إن وجدت</b><span>${escapeHtml(x.task||'—')}</span></div>
+        <div class="q-item w12"><b>روابط أداة التقويم</b><span>${linksHtml(String(x.assessmentLinks||'').split(/\n+/).map(s=>s.trim()).filter(s=>/^https?:\/\//i.test(s)))}</span></div>
+        <div class="q-item w12"><b>الدليل المتوقع قبل التنفيذ</b><span>${escapeHtml(x.qualityEvidence||'—')}</span></div>
+        ${(x.actualEvidenceLinks||x.actualEvidenceNote)?`<div class="q-item w12"><b>أدلة التنفيذ الفعلية بعد المحاضرة</b><span>${linksHtml(String(x.actualEvidenceLinks||'').split(/\n+/).map(s=>s.trim()).filter(s=>/^https?:\/\//i.test(s)))}${x.actualEvidenceNote?`<br>${escapeHtml(x.actualEvidenceNote)}`:''}</span></div>`:''}
+      </div>
+    </div>`).join('') : `<div class="pdf-note">لم تتم إضافة نواتج تعلم بعد.</div>`;
+
+  const qualityPlanRows=timelineRows.length ? timelineRows.map(a=>`
+    <tr class="${a.kind==='attendance'?'attendance-report-row':''}"><td>${escapeHtml(a.stage||'—')}</td><td>${escapeHtml(a.type||'—')}</td><td>${escapeHtml(a.tool||'—')}</td><td>${Number(a.min)||0} دقيقة</td></tr>`).join('') :
+    `<tr><td colspan="4">لم تتم إضافة مراحل تنفيذ بعد.</td></tr>`;
+
+  const breakRow=getBreakMinutes()
+    ? `<tr><td>استراحة</td><td>${escapeHtml(getBreakLabel())}</td><td>—</td><td>30 دقيقة</td></tr>`
+    : '';
+
+  $('qualityOutputBody').innerHTML=`
+    <div class="pdf-section avoid-break">${meta()}</div>
+
+    <div class="kpis avoid-break">
+      <div class="kpi"><b>${q.score}%</b><span>استيفاء ما قبل التنفيذ</span></div>
+      <div class="kpi"><b>${escapeHtml(q.status)}</b><span>حالة الخطة</span></div>
+      <div class="kpi"><b>${q.totalMins}</b><span>إجمالي الدقائق</span></div>
+      <div class="kpi"><b>${escapeHtml(today)}</b><span>تاريخ التقرير</span></div>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">مواءمة نواتج التعلم والتدريس والتقويم</div>
+      ${alignmentCards}
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">خطة التنفيذ والزمن</div>
+      <table>
+        <thead><tr><th>المرحلة</th><th>النشاط</th><th>الأداة</th><th>الوقت</th></tr></thead>
+        <tbody>${qualityPlanRows}${breakRow}</tbody>
+      </table>
+    </div>
+
+    <div class="pdf-section avoid-break">
+      <div class="pdf-section-title">التوثيق قبل التنفيذ</div>
+      <div class="pdf-meta">
+        <div class="pdf-meta-item"><b>مكان حفظ الأدلة</b><span>${escapeHtml(val('store')||'—')}</span></div>
+        <div class="pdf-meta-item"><b>التغذية الراجعة</b><span>${escapeHtml(val('feedback')||'—')}</span></div>
+        <div class="pdf-meta-item"><b>مصدر التعلم</b><span>${escapeHtml(val('resource')||'—')}</span></div>
+        <div class="pdf-meta-item"><b>الاستراحة</b><span>${escapeHtml(getBreakLabel())}</span></div>
+      </div>
+    </div>
+
+    <div class="pdf-section">
+      <div class="pdf-section-title">التحقق من اكتمال الخطة والمواءمة</div>
+      <table>
+        <thead><tr><th>المتطلب</th><th>الحالة</th><th>النتيجة الآلية</th></tr></thead>
+        <tbody>
+          ${q.checks.map(x=>`<tr>
+            <td>${escapeHtml(x.title)}</td>
+            <td style="font-weight:700;color:${x.ok?'var(--ok)':'var(--danger)'}">${x.ok?'مستوفى':'غير مستوفى'}</td>
+            <td>${escapeHtml(x.note)}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pdf-section avoid-break">
+      <div class="pdf-section-title">حالة الخطة</div>
+      <div class="${q.score>=90?'preview':'note'}">
+        <strong>${escapeHtml(q.status)}</strong><br>${escapeHtml(q.recommendation)}
+      </div>
+      ${missing.length?`
+        <div class="note" style="margin-top:5px">
+          <strong>العناصر المطلوب استكمالها:</strong>
+          <div style="margin-top:5px">${missing.map((x,i)=>`<div>${i+1}. ${escapeHtml(x.title)}</div>`).join('')}</div>
+        </div>`:''}
+    </div>
+
+    <div class="pdf-section avoid-break">
+      <div class="pdf-section-title">بيانات الاعتماد</div>
+      <div class="pdf-meta">
+        <div class="pdf-meta-item"><b>مُعد الخطة</b><span>${escapeHtml(val('instructor')||'—')}</span></div>
+        <div class="pdf-meta-item"><b>الحالة</b><span>${escapeHtml(q.status)}</span></div>
+        <div class="pdf-meta-item"><b>تاريخ التقرير</b><span>${escapeHtml(today)}</span></div>
+        <div class="pdf-meta-item"><b>البرنامج</b><span>${escapeHtml(val('program')||'—')}</span></div>
+      </div>
+    </div>
+
+    <div class="rights">
+      <strong>إعداد وتصميم: نور أحمد الزهراني</strong><br>
+      <span>جميع حقوق تصميم وإعداد الأداة محفوظة.</span>
+    </div>`;
+}
+function copyText(){
+  copyStudentText();
+}
+function copyStudentText(){
+  render();
+  const t=$('studentOutputBody').innerText;
+  navigator.clipboard?.writeText(t);
+  alert('تم نسخ محتوى خطة المحاضرة للطلاب');
+}
+function safeFilePart(s){
+  return String(s||'').trim().replace(/[\\/:*?"<>|]+/g,'-').replace(/\s+/g,'_') || 'بدون_اسم';
+}
+
+function isRestrictedPreview(){
+  try{
+    const p=location.protocol;
+    return window.self!==window.top || !['http:','https:','file:'].includes(p);
+  }catch(e){
+    return true;
+  }
+}
+
+function validateBeforeExport(mode){
+  const missing=[];
+  if(!val('program')) missing.push('البرنامج / الدبلوم');
+  if(!val('course')) missing.push('المقرر');
+  if(!val('week')) missing.push('الأسبوع');
+  if(!val('title')) missing.push('عنوان الدرس');
+  if(!val('instructor')) missing.push('عضو/عضوة هيئة التدريس');
+  if(getLOs().length===0) missing.push('ناتج تعلم واحد على الأقل');
+  if(getActs().length===0) missing.push('خطة تنفيذ الجلسة');
+  if(missing.length){
+    alert('لا يمكن إنشاء ملف PDF فارغ أو غير مكتمل. يرجى استكمال:\n- '+missing.join('\n- '));
+    return false;
+  }
+  return true;
+}
+async function exportPdfDocument(mode){
+  render();
+  if(!validateBeforeExport(mode)) return;
+
+  const course=safeFilePart(val('course')||'المقرر');
+  const week=safeFilePart(val('week')||'');
+  const lesson=safeFilePart(val('title')||'عنوان_الدرس');
+  const filename=`${course}_${week}_${lesson}_${mode==='student'?'خطة_المحاضرة_للطلاب':'متطلبات_الجودة'}`;
+
+  // انتظر تحميل الخطوط قبل الطباعة حتى يحافظ المتصفح على تشكيل العربية.
+  try{ if(document.fonts?.ready) await document.fonts.ready; }catch(e){}
+
+  document.body.classList.remove('print-student','print-quality');
+  document.body.classList.add(mode==='student'?'print-student':'print-quality');
+
+  const oldTitle=document.title;
+  document.title=filename;
+
+  let cleaned=false;
+  const cleanup=()=>{
+    if(cleaned)return;
+    cleaned=true;
+    document.body.classList.remove('print-student','print-quality');
+    document.title=oldTitle;
+    window.removeEventListener('afterprint',cleanup);
+  };
+
+  window.addEventListener('afterprint',cleanup,{once:true});
+
+  // Give layout one frame to switch to its print state.
+  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+
+  try{
+    window.print();
+  }catch(err){
+    cleanup();
+    console.error(err);
+    alert('تعذر فتح نافذة الطباعة. جرّب من متصفح Chrome أو Edge ثم اختر «حفظ بصيغة PDF».');
+    return;
+  }
+
+  // Some browsers do not dispatch afterprint reliably.
+  setTimeout(cleanup,3000);
+}
+function printStudent(){return exportPdfDocument('student')}
+function printQuality(){return exportPdfDocument('quality')}
+function printResult(){return printStudent()}
+
+function saveDraft(){return saveCurrentPlan()}
+function loadAutoDraft(){restoreWorkspaceOnStartup()}
+function loadDraft(){restoreWorkspaceOnStartup()}
+document.querySelectorAll('input,select,textarea').forEach(e=>e.addEventListener('input',updateAll));
+const savedGuidePreference=localStorage.getItem('lessonPlannerGuideHidden');
+if(savedGuidePreference==='1' || (savedGuidePreference===null && window.innerWidth<=760)){
+  $('guideBody')?.classList.add('hidden');
+  if($('guideToggle')) $('guideToggle').textContent='إظهار طريقة الاستخدام';
+}
+toggleBreakCustom();syncDurationUI();restoreWorkspaceOnStartup();updateAll();
+
+document.addEventListener('change',function(e){
+  if(e.target && e.target.classList && e.target.classList.contains('atool')){
+    handleOtherToolSelect(e.target);
+    autoSaveDraft();
+    updateAll();
+  }
+});
+
+</script>
+</body>
+</html>
